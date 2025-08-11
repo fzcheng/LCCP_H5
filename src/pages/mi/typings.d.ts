@@ -1,0 +1,30 @@
+export type UInfo = {
+  id: number
+  tel: string
+  email: string
+  username: string
+  pwd: string
+  pwdmw: string
+  parent_id: number
+  invite_code: string
+  addtime: number
+  status: number
+  pwd2: null
+  balance: string
+  yongj: string
+  jl_balance: string
+  jl_balance_limit: number
+  lxb_balance: string
+  ip: null
+  login_time: number
+  is_jia: number
+  all_recharge_num: string
+  all_deposit_num: string
+  all_recharge_count: number
+  all_deposit_count: number
+  agent_id: number
+  remark: null
+  kydnum: number
+  usdtaddr: null
+  v_id: number
+}

@@ -1,0 +1,55 @@
+// app global css in SCSS form
+@import 'tailwind.css';
+
+.center {
+  display: grid;
+  place-content: center;
+}
+
+.a-nostyle {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.mine-select,
+.mine-input {
+  .q-field__control {
+    border-radius: 8px;
+  }
+  &.q-field--standout.q-field--dark.q-field--highlighted .q-field__control {
+    background: rgba(255, 255, 255, 0.07) !important;
+  }
+  &.q-field--standout.q-field--dark.q-field--highlighted .q-field__native {
+    color: #fff !important;
+  }
+  &.q-field--standout.q-field--dark.q-field--highlighted .q-field__append {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  &.q-field--standout.q-field--dark.q-field--highlighted .q-field__prepend {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+}
+.mine-select {
+  &.q-field--standout.q-field--dark.q-field--highlighted .q-field__input {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+}
+
+.html-content {
+  overflow: auto;
+  img {
+    max-width: 100% !important;
+  }
+}

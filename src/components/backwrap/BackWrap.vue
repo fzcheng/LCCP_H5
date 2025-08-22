@@ -21,7 +21,7 @@ defineProps<{
 
 <style lang="scss" scoped>
 .header {
-  background: #181a20;
+  background: #14643D;
   background-size: 100% 100%;
 }
 </style>

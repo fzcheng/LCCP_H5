@@ -8,7 +8,7 @@
         no-caps
         active-class="tabcolor"
         indicator-color="transparent"
-        style="background-color: #191a1f; color: #747682"
+        style="background-color: #0F442A; color: #747682"
         class=""
       >
         <q-route-tab v-for="item in tabs" :key="item.path"  class="q-py-xs "   :to="item.path" replace >

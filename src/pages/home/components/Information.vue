@@ -25,6 +25,7 @@ defineProps<{
 
 <style lang="scss" scoped>
 .panel-bg{
-  background: linear-gradient(90deg, #181a20 0%, #313237 20%);;
+  // background: linear-gradient(90deg, #181a20 0%, #313237 20%);;
+  background: rgba(130, 129, 129, 0.3);
 }
 </style>

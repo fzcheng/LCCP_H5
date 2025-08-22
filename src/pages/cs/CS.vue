@@ -6,7 +6,7 @@
         Haga clic en la informacion de contacto a continuación para ponerse en contacto con nosotros ..
       </div>
 
-      <div class="flex items-center justify-center bg-[#222530] rounded-lg p-4 mt-4">
+      <div class="flex items-center justify-center bg-[#25432B] rounded-lg p-4 mt-4">
         <div class="flex-1 w-20 flex items-center">
           <div class="center mr-2">
             <img src="~/assets/images/public/TG.png" alt="TG.png" width="36px" height="36px" />
@@ -26,7 +26,7 @@
         </a>
       </div>
 
-      <div class="flex items-center justify-center bg-[#222530] rounded-lg p-4 mt-4">
+      <div class="flex items-center justify-center bg-[#25432B] rounded-lg p-4 mt-4">
         <div class="flex-1 w-20 flex items-center">
           <div class="center mr-2">
             <img src="~/assets/images/public/TG.png" alt="TG.png" width="36px" height="36px" />
@@ -46,7 +46,7 @@
         </a>
       </div>
 
-      <div class="flex items-center justify-center bg-[#222530] rounded-lg p-4 mt-4">
+      <div class="flex items-center justify-center bg-[#25432B] rounded-lg p-4 mt-4">
         <div class="flex-1 w-20 flex items-center">
           <div class="center mr-2">
             <img src="~/assets/images/public/WhatsApp.png" alt="TG.png" width="36px" height="36px" />

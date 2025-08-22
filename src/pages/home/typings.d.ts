@@ -27,6 +27,7 @@ export type UInfo = {
   kydnum: number
   usdtaddr: null
   v_id: number
+  send_money:string
 }
 
 export type GInfoItem = {
@@ -54,6 +55,13 @@ export type GInfoItem = {
   site_s_rebate: string
   kgm_num: number
   total_income: number
+  day_send_money:string
+  buy_num: number
+  balance_goods_status: number
+  surplus_time: string
+  recharge_y_rebate	: string
+  recharge_e_rebate	: string
+  recharge_s_rebate	: string
 }
 
 export type Chat = {

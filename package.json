@@ -1,8 +1,8 @@
 {
   "name": "lccp-h5",
   "version": "0.0.1",
-  "description": "Oilbases",
-  "productName": "Oilbases",
+  "description": "MMD",
+  "productName": "MMD",
   "author": "HosJoy <hosjoykit@gmail.com>",
   "type": "module",
   "private": true,

@@ -9,12 +9,15 @@
 
     <div class="font-bold q-mt-md">ID de usuario:{{ userinfo?.username ?? '' }}</div>
 
-    <Balance :data="userinfo" class="q-mt-md" />
-    <ActionBtns class="q-mt-lg" />
-
-    <div class="mt-7">
-      <q-separator color="grey-7" />
+    <div class="border-2 border-[#FFC31A] rounded-xl mt-4" style="background:linear-gradient(to bottom, #25432B 0%, #25432B 70% ,#FFC31A 75%,#FFC31A 100%);">
+      <ActionBtns class="q-mt-lg" />
+      <Balance :data="userinfo" class="q-mt-md" />
     </div>
+
+
+    <!-- <div class="mt-7">
+      <q-separator color="grey-7" />
+    </div> -->
     <ActionList />
   </q-page>
 </template>

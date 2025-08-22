@@ -27,4 +27,5 @@ export type UInfo = {
   kydnum: number
   usdtaddr: null
   v_id: number
+  send_money:string
 }

@@ -1,23 +1,27 @@
 <template>
-  <q-page  class="q-pa-md">
-    <div class="flex items-center justify-between">
+  <q-page >
+    <div class="flex items-center justify-between bg-[#194232] q-pa-md">
       <q-avatar size="38px"   color="teal" >
         <img src="/logo.png" alt="logo" >
       </q-avatar>
 
-      <router-link to="/cs"  class=" a-nostyle flex items-center px-4 py-1 rounded-full " style="border: 1px solid #5a5b63;">
+      <router-link to="/cs"  class=" a-nostyle flex items-center px-4 py-1 rounded-full " style="background: #14643D;">
         <div class="center mr-2"><img src="~/assets/images/home/customer.png" alt="customer" style="width: 18px;" /></div>
         <div>CS</div>
       </router-link>
     </div>
+    <div class="q-pa-md">
+      <Banner />
+      <Information v-if="indexmsg" :msg="indexmsg"  class="mt-3" />
+      <div class="h-1" v-else></div>
+      <div class="border-2 border-[#FFC31A] rounded-xl" style="background:linear-gradient(to bottom, #25432B 0%, #25432B 70% ,#FFC31A 75%,#FFC31A 100%);">
+        <ActionBtns class="q-mt-md" />
+        <Balance class="mt-3" :data="uinfo" />
+      </div>
+      <ProdList :data="ginfo" class="q-mt-md" />
+      <CSDialog :info="chat" :groupmsg="groupmsg"  />
+    </div>
 
-    <Banner class="q-mt-md" />
-    <Information v-if="indexmsg" :msg="indexmsg"  class="mt-3" />
-    <div class="h-1" v-else></div>
-    <Balance class="mt-3" :data="uinfo" />
-    <ActionBtns class="q-mt-md" />
-    <ProdList :data="ginfo" class="q-mt-md" />
-    <CSDialog :info="chat" :groupmsg="groupmsg"  />
   </q-page>
 </template>
 
@@ -44,10 +48,22 @@ const initData = async () => {
   const res = await indexApi()
   indexmsg.value = res.data.indexmsg
   uinfo.value = res.data.uinfo
-  ginfo.value = res.data.ginfo
+  ginfo.value = analysisGoods(res.data.ginfo)
   chat.value = res.data.pinfo
   groupmsg.value = res.data.groupmsg
 }
+
+const analysisGoods = (goods: GInfoItem[]) => {
+  const index = goods.findIndex(item => item.balance_goods_status == 1);
+  if (index > 0) {
+    return goods.slice(index - 1);
+  } else if (index === 0) {
+    // 如果第一个元素就满足条件，返回整个数组
+    return goods;
+  }
+  // 如果没找到，返回整个数组
+  return goods;
+};
 
 initData();
 

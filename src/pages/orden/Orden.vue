@@ -8,46 +8,50 @@
     </div>
 
     <div
-      class="bg-[#fcd33c12] rounded-lg p-2 q-mt-md flex justify-center items-center"
+      class="bg-[#25432B] rounded-lg p-2 q-mt-md "
       style="border: 1px solid #fcd33c"
     >
-      <div class="text-center mx-4 my-1">
-        <div>Ganancia total</div>
-        <div class="text-secondary font-bold">
-          <span>M$</span>
-          <span class="text-lg">{{ total }}</span>
-        </div>
-      </div>
-      <div class="text-center mx-4 my-1">
-        <div>Cantidad de producto</div>
-        <div class="text-secondary font-bold">
-          <span class="text-lg">{{ cantidadProducto }}</span>
-        </div>
-      </div>
-      <div class="text-center mx-4 my-1">
+      <div class="text-left mx-1 my-1">
         <div>Ingresos pendientes de liquidar</div>
         <div class="text-secondary font-bold">
           <span>M$</span>
           <span class="text-lg">{{ ingresosLiquidar }}</span>
         </div>
       </div>
+      <div class="flex mx-1 justify-between items-center">
+        <div class="text-center w-[49%] my-1 bg-[#14643D] rounded-lg py-1">
+          <div>Ganancia total</div>
+          <div class="text-secondary font-bold">
+            <span>M$</span>
+            <span class="text-lg">{{ total }}</span>
+          </div>
+        </div>
+        <div class="text-center w-[49%] my-1 bg-[#14643D] rounded-lg py-1">
+          <div>Cantidad de producto</div>
+          <div class="text-secondary font-bold">
+            <span class="text-lg">{{ cantidadProducto }}</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <q-tabs v-model="tab" class="text-grey-5 q-mt-sm" active-color="primary" indicator-color="primary" align="justify">
+    <!-- <q-tabs v-model="tab" class="text-grey-5 q-mt-sm" active-color="primary" indicator-color="primary" align="justify">
       <q-tab name="comprado" no-caps :ripple="false" style="font-size: 16px" label="Comprado" />
       <q-tab name="ya" :ripple="false" no-caps label="Ya vencido" />
     </q-tabs>
     <q-separator style="margin-top: -1px" color="grey-5" />
 
     <q-tab-panels v-model="tab" animated>
-      <q-tab-panel name="comprado" class="q-pa-none">
+      <q-tab-panel name="comprado" class="q-pa-none overflow-x-hidden">
         <Comprado :list="list" />
       </q-tab-panel>
 
-      <q-tab-panel name="ya" class="q-pa-none">
+      <q-tab-panel name="ya" class="q-pa-none overflow-x-hidden">
         <YaVencido :list="list" />
       </q-tab-panel>
-    </q-tab-panels>
+    </q-tab-panels> -->
+    <div class="text-[#FEBA1B] q-mt-sm text-center" style="font-size: 16px">comprado</div>
+    <Comprado :list="list" />
   </q-page>
 </template>
 

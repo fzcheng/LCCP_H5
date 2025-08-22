@@ -20,21 +20,29 @@
       <div class="text-lg font-bold text-primary">M${{ info?.goods_price ?? '0' }}</div>
 
       <div class="grid grid-cols-2 grid-flow-row gap-4 q-mt-md">
-        <div class="bg-[#222530] rounded-md text-center px-2 py-3 min-h-[68px]">
+        <div class="bg-[#669D5A] rounded-md text-center px-2 py-3 min-h-[68px]">
+          <div class="text-base font-bold text-primary">M${{ info?.day_send_money ?? '0' }}</div>
+          <div class="text-[13px]">Ganancia diaria</div>
+        </div>
+        <div class="bg-[#669D5A] rounded-md text-center px-2 py-3 min-h-[68px]">
           <div class="text-base font-bold text-primary">M${{ info?.day_income ?? '0' }}</div>
-          <div class="text-[13px]">Ingreso por día</div>
+          <div class="text-[13px]">Desbloqueo diario</div>
         </div>
-        <div class="bg-[#222530] rounded-md text-center px-2 py-3 min-h-[68px]">
-          <div class="text-base font-bold text-primary">M${{ info?.total_income ?? '0' }}</div>
-          <div class="text-[13px]">Ingreso total</div>
+        <div class="bg-[#669D5A] rounded-md text-center px-2 py-3 min-h-[68px]">
+          <div class="text-base font-bold text-primary">{{ info?.buy_num ?? '0' }} Días</div>
+          <div class="text-[13px]">Prod. restantes</div>
         </div>
-        <div class="bg-[#222530] rounded-md text-center px-2 py-3 min-h-[68px]">
-          <div class="text-base font-bold text-primary">{{ info?.effective_time ?? '0' }} Días</div>
-          <div class="text-[13px]">Días de inversión</div>
+        <div class="bg-[#669D5A] rounded-md text-center px-2 py-3 min-h-[68px]">
+          <div class="text-base font-bold text-primary">{{ !info?.site_y_rebate ? '0%' : info.site_y_rebate+ '%' }}</div>
+          <div class="text-[13px]">Comisión 1er nivel</div>
         </div>
-        <div class="bg-[#222530] rounded-md text-center px-2 py-3 min-h-[68px]">
-          <div class="text-base font-bold text-primary">{{ info?.buy_num ?? '0' }}</div>
-          <div class="text-[13px]">Cantidad invertible</div>
+        <div class="bg-[#669D5A] rounded-md text-center px-2 py-3 min-h-[68px]">
+          <div class="text-base font-bold text-primary">{{ !info?.site_e_rebate ? '0%' : info.site_e_rebate+ '%' }}</div>
+          <div class="text-[13px]">Comisión 2do nivel</div>
+        </div>
+          <div class="bg-[#669D5A] rounded-md text-center px-2 py-3 min-h-[68px]">
+          <div class="text-base font-bold text-primary">{{ !info?.site_s_rebate ? '0%' : info.site_s_rebate+ '%' }}</div>
+          <div class="text-[13px]">Comisión 3er nivel</div>
         </div>
       </div>
 
@@ -92,7 +100,8 @@ type GoodInfo = {
   site_y_rebate: string
   site_e_rebate: string
   site_s_rebate: string
-  kgm_num: number
+  kgm_num: number,
+  day_send_money:string
 }
 
 const info = ref<GoodInfo>()

@@ -12,8 +12,10 @@ export const goodsBuyorderApi = <T = any>(data: any) => {
 }
 
 
-export const myBillApi = <T = any>() => {
-  return api.get<T, Result<T>>('/api/my/bill')
+export const myBillApi = <T = any>(data: any) => {
+  return api.get<T, Result<T>>('/api/my/bill',{
+    params: data
+  })
 }
 
 

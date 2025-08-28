@@ -18,14 +18,39 @@
           class="mr-2"
           style="border-radius: 6px"
         />
-        <div class="flex-1 w-5 text-[13px]">
-          <!-- <div>Ingreso diario: M${{ item.day_income }}</div>
-          <div>Ingreso total: M${{ item.total_income }}</div>
-          <div>Días de inversión: {{ item.effective_time }} días</div> -->
+        <!-- <div class="flex-1 w-5 text-[13px]">
           <div>Ganancia diaria: M${{ item.day_send_money ?? '0' }}</div>
           <div>Desbloqueo diario: M${{ item.day_income ?? '0'}}</div>
           <div>Total comisión: {{ getRebate(item)}}%</div>
-        </div>
+        </div> -->
+        <div class="flex-1 w-5 text-[13px]">
+            <div class="text-center">Recibir salario todos los días</div>
+            <div class="flex items-center justify-center text-bold gap-1">        
+              <q-img
+                src="~/assets/images/home/m.png"
+                width="14px"
+                height="14px"
+                fit="contain"
+                no-spinner
+                no-transition
+                alt=""
+              />
+              M${{ item.day_income ?? '0'}}
+            </div>
+            <div class="text-center">Todos los días a las</div>
+            <div class="flex items-center justify-center text-bold gap-1">        
+              <q-img
+                src="~/assets/images/home/t.png"
+                width="14px"
+                height="14px"
+                fit="contain"
+                no-spinner
+                no-transition
+                alt=""
+              />
+              12:30
+            </div>
+          </div>
       </div>
     </div>
     <!-- <div class="flex items-end justify-end text-[#FA0401] text-xs">

@@ -140,12 +140,43 @@
       </div>
     </div> -->
 
-    <div v-if="msg" class="bg-[#25432B] text-[13px] rounded-lg p-2 mt-8">
-        <!-- <div class="flex items-center">
-          <div class="mr-1 center"><q-icon name="error" size="15px" /></div>
-          <div class="font-bold">{{ msg?.title ?? '' }}</div>
-        </div> -->
+    <!-- <div v-if="msg" class="bg-[#25432B] text-[13px] rounded-lg p-2 mt-8">
         <div class="mt-1 html-content" v-html="msg?.content ?? ''"></div>
+      </div> -->
+      <div class="bg-[#669D5A] rounded-lg p-3 mt-4">
+        <table class="income-table">
+          <thead>
+            <tr>
+              <th>Puesto</th>
+              <th>Comisión 1er nivel</th>
+              <th>Comisión 2do nivel</th>
+              <th>Comisión 3er nivel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) in data?.glist" :key="index">
+              <td class="flex flex-col items-center">
+                <q-img
+                    :src="item.goods_pic"
+                    :ratio="1"
+                    spinner-color="primary"
+                    spinner-size="20px"
+                    width="40px"
+                    height="40px"
+                    class=""
+                    style="border-radius: 6px"
+                />
+                {{ item.goods_name }}
+              </td>
+              <!-- <td>{{ !item?.site_y_rebate ? '0%' : item.site_y_rebate+ '%' }}</td>
+              <td>{{ !item?.site_e_rebate ? '0%' : item.site_e_rebate+ '%' }}</td>
+              <td>{{ !item?.site_s_rebate ? '0%' : item.site_s_rebate+ '%' }}</td> -->
+              <td>{{ !item?.recharge_y_rebate ? '0%' : item.recharge_y_rebate+ '%' }}</td>
+              <td>{{ !item?.recharge_e_rebate ? '0%' : item.recharge_e_rebate+ '%' }}</td>
+              <td>{{ !item?.recharge_s_rebate ? '0%' : item.recharge_s_rebate+ '%' }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
   </q-page>
 </template>
@@ -155,6 +186,7 @@ import { copyTextNotify } from 'src/utils/copy'
 import Balance from './components/Balance.vue'
 import { teamIndexApi } from 'src/api'
 import { computed, ref } from 'vue'
+import { GInfoItem } from '../home/typings'
 
 type Msg = {
   id: number
@@ -204,6 +236,7 @@ type ResType = {
   teamLevel2: string
   teamLevel3: string
   success: string
+  glist:GInfoItem[]
 }
 
 const data = ref<ResType>()
@@ -277,6 +310,53 @@ initData()
       border-top: 2px solid transparent;
       border-right: 2px solid #F6D042;
       border-radius: 0 0 0.5rem 0;
+    }
+  }
+
+  .income-table {
+    width: 100%;
+    /* 移除 border-collapse: collapse */
+    // 表格外边框设置为黄色
+    border: 1px solid yellow;
+    // 添加圆角
+    border-radius: 8px;
+    // 隐藏表格在圆角处的边框冲突
+    overflow: hidden;
+    border-spacing: 0; /* 确保单元格之间没有间距 */
+    
+    th, td {
+      padding:3px;
+      text-align: center;
+      font-size: 12px;
+      // 单元格边框设置为黄色
+      border: 1px solid yellow;
+    }
+    
+    th {
+      // background-color: #2d303e;
+      font-weight: bold;
+    }
+    
+    tr:hover {
+      // background-color: #2d303e;
+    }
+    
+    /* 特别处理表头第一列和最后一列的圆角 */
+    thead tr:first-child th:first-child {
+      border-top-left-radius: 8px;
+    }
+    
+    thead tr:first-child th:last-child {
+      border-top-right-radius: 8px;
+    }
+    
+    /* 特别处理表体最后一行单元格的圆角 */
+    tbody tr:last-child td:first-child {
+      border-bottom-left-radius: 8px;
+    }
+    
+    tbody tr:last-child td:last-child {
+      border-bottom-right-radius: 8px;
     }
   }
 </style>

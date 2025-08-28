@@ -26,6 +26,14 @@
         ></q-input>
 
         <div class="font-bold text-[15px] mb-1">Número de cuenta</div>
+        <!-- <q-input
+          v-model="cardnum"
+          dense
+          standout
+          class="q-mb-md mine-input"
+          placeholder="Ingrese el Número de cuenta"
+          type="text"
+        ></q-input> -->
         <q-input
           v-model="cardnum"
           dense
@@ -33,8 +41,9 @@
           class="q-mb-md mine-input"
           placeholder="Ingrese el Número de cuenta"
           type="text"
+          mask="##############################"
+          unmasked-value
         ></q-input>
-
         <q-btn
           class="font-bold full-width q-mb-sm q-mt-sm"
           color="primary"
@@ -73,6 +82,7 @@ const reset = () => {
   cardnum.value = null
   username.value = null
 }
+
 
 const filterFn = (val: string, update: (fn: () => void) => void) => {
   if (val === '') {

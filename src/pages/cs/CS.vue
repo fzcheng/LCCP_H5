@@ -6,7 +6,7 @@
         Haga clic en la informacion de contacto a continuación para ponerse en contacto con nosotros ..
       </div>
 
-      <div class="flex items-center justify-center bg-[#25432B] rounded-lg p-4 mt-4">
+      <!-- <div class="flex items-center justify-center bg-[#25432B] rounded-lg p-4 mt-4">
         <div class="flex-1 w-20 flex items-center">
           <div class="center mr-2">
             <img src="~/assets/images/public/TG.png" alt="TG.png" width="36px" height="36px" />
@@ -24,14 +24,33 @@
             label="Ir ahora"
           />
         </a>
-      </div>
+      </div> -->
 
-      <div class="flex items-center justify-center bg-[#25432B] rounded-lg p-4 mt-4">
+      <!-- <div class="flex items-center justify-center bg-[#25432B] rounded-lg p-4 mt-4">
         <div class="flex-1 w-20 flex items-center">
           <div class="center mr-2">
             <img src="~/assets/images/public/TG.png" alt="TG.png" width="36px" height="36px" />
           </div>
           <div class="flex-1 w-10">Telegram</div>
+        </div>
+        <a :href="info?.chats_link_telegram ?? ''" class="a-nostyle">
+          <q-btn
+            color="primary"
+            text-color="black"
+            size="sm"
+            no-caps
+            unelevated
+            style="border-radius: 6px"
+            label="Ir ahora"
+          />
+        </a>
+      </div> -->
+      <div class="flex items-center justify-center bg-[#25432B] rounded-lg p-4 mt-4">
+        <div class="flex-1 w-20 flex items-center">
+          <div class="center mr-2">
+            <img src="~/assets/images/public/WhatsApp.png" alt="TG.png" width="36px" height="36px" />
+          </div>
+          <div class="flex-1 w-10">WhatsApp</div>
         </div>
         <a :href="info?.chats_link_telegram ?? ''" class="a-nostyle">
           <q-btn

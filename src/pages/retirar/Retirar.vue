@@ -10,9 +10,15 @@
         </div>
       </div>
 
-      <div class="flex items-center q-mt-md">
-        <div class="w-[2px] bg-primary h-[12px] mr-1"></div>
-        <div class="font-medium">Retiro de saldo</div>
+      <div class="flex items-center justify-between q-mt-md">
+        <div class="flex items-center">
+          <div class="w-[2px] bg-primary h-[12px] mr-1"></div>
+          <div class="font-medium">Retiro de saldo</div>
+          <!-- <div class="font-medium">Retirable</div> -->
+        </div>
+        <div>
+          <div class="pr-3"><span class="text-[13px]">Retirable:M$</span> <span class="font-bold text-lg">{{ all_withdraw_quota }}</span></div>
+        </div>
       </div>
 
       <div class="rounded-md p-3 flex items-center mt-3 font-bold text-[15px]" style="border: 1px solid #feba1b">
@@ -35,7 +41,51 @@
           @click="getAll()"
         />
       </div>
-      <div class="text-[13px] font-bold mt-3">
+      <div class="flex items-center q-mr-xs mt-2">
+        <div class="flex-1 w-10 flex items-center no-wrap">
+          <template v-if="!!ginfo">
+            <q-img
+              :src="ginfo?.goods_pic"
+              :ratio="1"
+              spinner-color="primary"
+              spinner-size="20px"
+              width="75px"
+              height="75px"
+              class="mr-2"
+              style="border-radius: 6px"
+            />
+          </template>
+          <template v-else>
+            <q-img
+              src="~/assets/images/home/default.jpg"
+              :ratio="1"
+              spinner-color="primary"
+              spinner-size="20px"
+              width="75px"
+              height="75px"
+              class="mr-2"
+              style="border-radius: 6px"
+            />
+          </template>
+          <div>
+            <div class="flex items-center text-[14px]">
+              <div class="text-bold">{{ ginfo?.goods_name ?? 'Empleado informal' }}</div>
+              <div class="center">
+                <img 
+                  src="~/assets/images/public/gan.png"
+                  alt="Close" 
+                  style="width: 14px;margin-left: 5px;"
+                  @click="showRebate()"
+                />
+              </div>
+            </div>
+            <div class="flex-1 text-[13px] mt-2">
+              <div class="text-center">Recibir salario todos los días: M${{ ginfo?.day_income ?? '0'}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="text-[13px] font-bold mt-3">
         <div class="flex item-center">{{ `Retiro VIP: ${withdraw_quota} ` }}
           <div class="center">
             <img 
@@ -56,16 +106,13 @@
             />
           </div>
         </div>
-      </div>
-      <div class="text-[13px] mt-3 text-white">
+      </div> -->
+      <!-- <div class="text-[13px] mt-3 text-white">
         <div>{{ ginfo?.goods_name }}</div>
-        <!-- <div class="mt-1">{{ `Comisión 1er nivel: ${!ginfo?.site_y_rebate ? '0%' : ginfo.site_y_rebate+ '%'}` }}</div>
-        <div class="mt-1">{{ `Comisión 2do nivel: ${!ginfo?.site_e_rebate ? '0%' : ginfo.site_e_rebate+ '%'}` }}</div>
-        <div class="mt-1">{{ `Comisión 3er nivel: ${!ginfo?.site_s_rebate ? '0%' : ginfo.site_s_rebate+ '%'}` }}</div> -->
         <div class="mt-1">{{ `Comisión 1er nivel: ${!ginfo?.recharge_y_rebate ? '0%' : ginfo.recharge_y_rebate+ '%'}` }}</div>
         <div class="mt-1">{{ `Comisión 2do nivel: ${!ginfo?.recharge_e_rebate ? '0%' : ginfo.recharge_e_rebate+ '%'}` }}</div>
         <div class="mt-1">{{ `Comisión 3er nivel: ${!ginfo?.recharge_s_rebate ? '0%' : ginfo.recharge_s_rebate+ '%'}` }}</div>
-      </div>
+      </div> -->
       <q-btn
         color="primary"
         text-color="black"
@@ -87,8 +134,8 @@
       </div>
     </q-page>
   </BackWrap>
-  <IncomeDetail ref="IncomeDetailRef"/>
-  <RebateDetail ref="RebateDetailRef"/>
+  <!-- <AllIncome ref="IncomeDetailRef"/> -->
+  <AllIncome ref="RebateDetailRef"/>
 </template>
 
 <script setup lang="ts">
@@ -96,7 +143,8 @@ import { useQuasar } from 'quasar'
 import { moneyWithdrawApi, moneyWithdrawDoApi } from 'src/api/money'
 import BackWrap from 'src/components/backwrap/BackWrap.vue'
 import { ref } from 'vue'
-import IncomeDetail from './IncomeDetail.vue'
+// import IncomeDetail from './IncomeDetail.vue'
+import AllIncome from './AllIncome.vue'
 import RebateDetail from './RebateDetail.vue'
 import { GInfoItem } from '../home/typings'
 
@@ -123,6 +171,8 @@ const gList = ref<GInfoItem[]>([])
 const ginfo = ref<GInfoItem>()
 const loading = ref(false)
 const withdraw_money = ref('')
+const all_withdraw_quota = ref('')
+// const canWithdraw = ref()
 
 const submit = async () =>{
   const amountTemp = (amount.value ?? 0)
@@ -165,7 +215,9 @@ const initData = async () => {
   balance.value = res.data.uinfo.send_money
   withdraw_money.value = res.data.uinfo.withdraw_money
   withdraw_quota.value = res.data.uinfo.withdraw_quota
+  all_withdraw_quota.value = res.data.uinfo.all_withdraw_quota
   yongj.value = res.data.uinfo.yongj
+  // canWithdraw.value = parseInt(res.data.uinfo.withdraw_quota) + parseInt(res.data.uinfo.yongj)
   msg.value = res.data.msg
   gList.value = res.data.glist
   ginfo.value = res.data.ginfo

@@ -8,7 +8,7 @@
         <div class="font-bold text-base">{{ item.goods_name }}</div>
         <div class="text-lg font-bold text-primary">M$ {{ item.goods_price }}</div>
       </div>
-      <div class="flex items-center q-mr-xs mt-2">
+      <div class="flex items-center q-mr-xs mt-1">
         <div class="flex-1 w-10 flex items-center no-wrap">
           <q-img
             :src="item.goods_pic"
@@ -21,9 +21,35 @@
             style="border-radius: 6px"
           />
           <div class="flex-1 w-5 text-[13px]">
-            <div>Ganancia diaria: M${{ item.day_send_money ?? '0' }}</div>
+            <div class="text-center">Recibir salario todos los días</div>
+            <div class="flex items-center justify-center text-bold gap-1">        
+              <q-img
+                src="~/assets/images/home/m.png"
+                width="14px"
+                height="14px"
+                fit="contain"
+                no-spinner
+                no-transition
+                alt=""
+              />
+              M${{ item.day_income ?? '0'}}
+            </div>
+            <div class="text-center">Todos los días a las</div>
+            <div class="flex items-center justify-center text-bold gap-1">        
+              <q-img
+                src="~/assets/images/home/t.png"
+                width="14px"
+                height="14px"
+                fit="contain"
+                no-spinner
+                no-transition
+                alt=""
+              />
+              12:30
+            </div>
+            <!-- <div>Ganancia diaria: M${{ item.day_send_money ?? '0' }}</div>
             <div>Desbloqueo diario: M${{ item.day_income ?? '0'}}</div>
-            <div>Total comisión: {{ getRebate(item)}}%</div>
+            <div>Total comisión: {{ getRebate(item)}}%</div> -->
           </div>
         </div>
         <q-btn

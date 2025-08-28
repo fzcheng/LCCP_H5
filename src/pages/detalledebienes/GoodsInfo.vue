@@ -19,7 +19,7 @@
       </div>
       <div class="text-lg font-bold text-primary">M${{ info?.goods_price ?? '0' }}</div>
 
-      <div class="grid grid-cols-2 grid-flow-row gap-4 q-mt-md">
+      <!-- <div class="grid grid-cols-2 grid-flow-row gap-4 q-mt-md">
         <div class="bg-[#669D5A] rounded-md text-center px-2 py-3 min-h-[68px]">
           <div class="text-base font-bold text-primary">M${{ info?.day_send_money ?? '0' }}</div>
           <div class="text-[13px]">Ganancia diaria</div>
@@ -43,6 +43,52 @@
           <div class="bg-[#669D5A] rounded-md text-center px-2 py-3 min-h-[68px]">
           <div class="text-base font-bold text-primary">{{ !info?.site_s_rebate ? '0%' : info.site_s_rebate+ '%' }}</div>
           <div class="text-[13px]">Comisión 3er nivel</div>
+        </div>
+      </div> -->
+      <div class="bg-[#25432B] border-2 border-[#FFC31A] rounded-xl p-4 mt-4">
+        <div class="flex-1 text-[16px]">
+          <div class="text-center">Recibir salario todos los días</div>
+          <div class="flex items-center justify-center text-bold gap-1 text-primary">        
+            <q-img
+              src="~/assets/images/home/m1.png"
+              width="16px"
+              height="16px"
+              fit="contain"
+              no-spinner
+              no-transition
+              alt=""
+            />
+            M${{ info?.day_income ?? '0' }}
+          </div>
+          <div class="text-center mt-2">Todos los días a las</div>
+          <div class="flex items-center justify-center text-bold gap-1 text-primary">        
+            <q-img
+              src="~/assets/images/home/t1.png"
+              width="16px"
+              height="16px"
+              fit="contain"
+              no-spinner
+              no-transition
+              alt=""
+            />
+            12:30
+          </div>
+        </div>
+        <div class="bg-[#A1ACA1] w-full h-[1px] my-4"></div>
+        <div class="text-center">Referir nuevo empleado</div>
+        <div class="grid grid-cols-3 grid-flow-row gap-2 pt-2">
+          <div class="bg-[#14643D] rounded-xl py-2">
+            <div class="text-center">{{ !info?.site_y_rebate ? '0%' : info.site_y_rebate+ '%' }}</div>
+            <div class="text-center text-[10px]">Comisión 1er nivel</div>
+          </div>
+          <div class="bg-[#14643D] rounded-xl py-2">
+            <div class="text-center">{{ !info?.site_e_rebate ? '0%' : info.site_e_rebate+ '%' }}</div>
+            <div class="text-center text-[10px]">Comisión 2do nivel</div>
+          </div>
+          <div class="bg-[#14643D] rounded-xl py-2">
+            <div class="text-center">{{ !info?.site_s_rebate ? '0%' : info.site_s_rebate+ '%' }}</div>
+            <div class="text-center text-[10px]">Comisión 3er nivel</div>
+          </div>
         </div>
       </div>
 

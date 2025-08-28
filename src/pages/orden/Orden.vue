@@ -11,13 +11,13 @@
       class="bg-[#25432B] rounded-lg p-2 q-mt-md "
       style="border: 1px solid #fcd33c"
     >
-      <div class="text-left mx-1 my-1">
+      <!-- <div class="text-left mx-1 my-1">
         <div>Ingresos pendientes de liquidar</div>
         <div class="text-secondary font-bold">
           <span>M$</span>
           <span class="text-lg">{{ ingresosLiquidar }}</span>
         </div>
-      </div>
+      </div> -->
       <div class="flex mx-1 justify-between items-center">
         <div class="text-center w-[49%] my-1 bg-[#14643D] rounded-lg py-1">
           <div>Ganancia total</div>

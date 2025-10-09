@@ -7,7 +7,7 @@
 
       <router-link to="/cs"  class=" a-nostyle flex items-center px-4 py-1 rounded-full " style="border: 1px solid #5a5b63;">
         <div class="center mr-2"><img src="~/assets/images/home/customer.png" alt="customer" style="width: 18px;" /></div>
-        <div>CS</div>
+        <div>{{ t('CS') }}</div>
       </router-link>
     </div>
 
@@ -31,7 +31,8 @@ import ProdList from './components/ProdList.vue';
 import { ref } from 'vue';
 import { Chat, GInfoItem, UInfo } from './typings';
 import CSDialog from './components/CSDialog.vue';
-
+import { useI18n } from 'vue-i18n';
+const {t} = useI18n()
 const indexmsg = ref('')
 const uinfo = ref<UInfo>()
 const ginfo = ref<GInfoItem[]>([])

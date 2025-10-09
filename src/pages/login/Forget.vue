@@ -15,7 +15,7 @@
               class="w-[14px] h-[17.11px] block"
             />
           </div>
-          <div>Teléfono</div>
+          <div>{{ t('login1') }}</div>
         </label>
         <div
           class="flex items-center bg-[#2c2c2e] rounded-md q-mt-xs text-white"
@@ -25,7 +25,7 @@
             type="tel"
             v-model="mobile"
             autocomplete="username"
-            placeholder="Ingrese su numero de teléfono"
+            :placeholder="t('login2')"
             class="bg-transparent mr-4 outline-none border-none flex-1 py-3 w-5 text-white placeholder-gray-400"
           />
 
@@ -37,7 +37,7 @@
             size="xs"
             padding="sm sm"
             no-caps
-            :label="countdown > 0 ? `${countdown} S` : 'Enviar'"
+            :label="countdown > 0 ? `${countdown} S` : t('Enviar')"
             :disable="countdown > 0"
             @click="getCode"
           />
@@ -54,12 +54,12 @@
               class="w-[14px] h-[17.11px] block"
             />
           </div>
-          <div>Código de verificación</div>
+          <div>{{ t('login11') }}</div>
         </label>
         <input
           type="text"
           v-model="verificationCode"
-          placeholder="Ingrese codigo de verificación"
+          :placeholder="t('login12')"
           class="bg-[#2c2c2e] px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-white placeholder-gray-400"
         />
       </div>
@@ -74,13 +74,13 @@
               class="w-[16px] h-[18px] block"
             />
           </div>
-          <div>Contraseña</div>
+          <div>{{ t('login13') }}</div>
         </label>
         <input
           autocomplete="current-password"
           type="password"
           v-model="password"
-          placeholder="Ingrese su contraseña"
+          :placeholder="t('login4')"
           class="bg-[#2c2c2e] px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-white placeholder-gray-400"
         />
       </div>
@@ -94,13 +94,13 @@
               class="w-[16px] h-[18px] block"
             />
           </div>
-          <div>Confirmar contraseña</div>
+          <div>{{ t('SecurityPassword4') }}</div>
         </label>
         <input
           autocomplete="new-password"
           type="password"
           v-model="passwordC"
-          placeholder="Ingrese contraseña de confirmacion"
+          :placeholder="t('login14')"
           class="bg-[#2c2c2e] px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-white placeholder-gray-400"
         />
       </div>
@@ -110,7 +110,7 @@
           <q-btn
             color="primary"
             text-color="black"
-            label="Enviar"
+            :label="t('Enviar')"
             class="full-width"
             padding="sm"
             unelevated
@@ -122,7 +122,7 @@
         <router-link to="/login" replace  class="mt-3 block a-nostyle">
           <q-btn
             color="primary"
-            label="Iniciar sesion"
+            :label="t('login6')"
             class="full-width"
             padding="sm"
             no-caps
@@ -140,8 +140,10 @@
 import { useQuasar } from "quasar";
 import { doForgetPasswordApi, sendsmsApi } from "src/api/user";
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 
+const {t} = useI18n()
 const mobile = ref("");
 const password = ref("");
 const passwordC = ref("");

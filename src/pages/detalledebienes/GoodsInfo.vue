@@ -1,5 +1,5 @@
 <template>
-  <BackWrap title="Detalle de bienes">
+  <BackWrap :title="t('goodsInfo1')">
     <q-page class="q-pa-md">
       <div class="flex justify-center items-center">
         <q-img
@@ -17,24 +17,24 @@
       <div class="text-base font-medium q-mt-md">
         {{ info?.goods_name ?? '' }}
       </div>
-      <div class="text-lg font-bold text-primary">M${{ info?.goods_price ?? '0' }}</div>
+      <div class="text-lg font-bold text-primary">{{ t('symbol') }} {{ info?.goods_price ?? '0' }}</div>
 
       <div class="grid grid-cols-2 grid-flow-row gap-4 q-mt-md">
         <div class="bg-[#222530] rounded-md text-center px-2 py-3 min-h-[68px]">
-          <div class="text-base font-bold text-primary">M${{ info?.day_income ?? '0' }}</div>
-          <div class="text-[13px]">Ingreso por día</div>
+          <div class="text-base font-bold text-primary">{{ t('symbol') }}{{ info?.day_income ?? '0' }}</div>
+          <div class="text-[13px]">{{ t('goodsInfo2') }}</div>
         </div>
         <div class="bg-[#222530] rounded-md text-center px-2 py-3 min-h-[68px]">
-          <div class="text-base font-bold text-primary">M${{ info?.total_income ?? '0' }}</div>
-          <div class="text-[13px]">Ingreso total</div>
+          <div class="text-base font-bold text-primary">{{ t('symbol') }}{{ info?.total_income ?? '0' }}</div>
+          <div class="text-[13px]">{{ t('goodsInfo3') }}</div>
         </div>
         <div class="bg-[#222530] rounded-md text-center px-2 py-3 min-h-[68px]">
-          <div class="text-base font-bold text-primary">{{ info?.effective_time ?? '0' }} Días</div>
-          <div class="text-[13px]">Días de inversión</div>
+          <div class="text-base font-bold text-primary">{{ info?.effective_time ?? '0' }} {{ t('goodsInfo7') }}</div>
+          <div class="text-[13px]">{{ t('goodsInfo4') }}</div>
         </div>
         <div class="bg-[#222530] rounded-md text-center px-2 py-3 min-h-[68px]">
           <div class="text-base font-bold text-primary">{{ info?.buy_num ?? '0' }}</div>
-          <div class="text-[13px]">Cantidad invertible</div>
+          <div class="text-[13px]">{{ t('goodsInfo5') }}</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
         class="full-width q-mt-lg"
         style="border-radius: 8px; font-weight: bold"
         padding="sm"
-        label="Invertir ahora"
+        :label="t('goodsInfo6')"
         text-color="black"
         :loading="loading"
         unelevated
@@ -60,8 +60,11 @@ import { goodsInfoApi } from 'src/api'
 import { goodsBuyorderApi } from 'src/api/order'
 import BackWrap from 'src/components/backwrap/BackWrap.vue'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
+
+const {t} = useI18n()
 const $q = useQuasar()
 
 const route = useRoute()

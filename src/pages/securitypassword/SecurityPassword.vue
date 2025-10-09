@@ -1,14 +1,14 @@
 <template>
-  <BackWrap title="Cambiar contraseña">
+  <BackWrap :title="t('mi2')">
     <q-page class="q-pa-md">
       <div class="">
-        <div class="font-bold text-[15px] mb-1">Contraseña anterior</div>
+        <div class="font-bold text-[15px] mb-1">{{ t('SecurityPassword2') }}</div>
         <q-input
           v-model="oldPassword"
           dense
           standout
           class="mine-input q-mb-md"
-          placeholder="Contraseña anterior"
+          :placeholder="t('SecurityPassword2')"
           :type="isPwd.old ? 'password' : 'text'"
         >
           <template v-slot:append>
@@ -21,13 +21,13 @@
           </template>
         </q-input>
 
-        <div class="font-bold text-[15px] mb-1">Nueva contraseña</div>
+        <div class="font-bold text-[15px] mb-1">{{ t('SecurityPassword3') }}</div>
         <q-input
           v-model="newPassword"
           dense
           standout
           class="q-mb-md mine-input"
-          placeholder="Nueva contraseña"
+          :placeholder="t('SecurityPassword3')"
           :type="isPwd.new ? 'password' : 'text'"
         >
           <template v-slot:append>
@@ -40,13 +40,13 @@
           </template>
         </q-input>
 
-        <div class="font-bold text-[15px] mb-1">Confirmar contraseña</div>
+        <div class="font-bold text-[15px] mb-1">{{ t('SecurityPassword4') }}</div>
         <q-input
           v-model="confirmPassword"
           dense
           standout
           class="q-mb-md mine-input"
-          placeholder="Confirmar contraseña"
+          :placeholder="t('SecurityPassword4')"
           :type="isPwd.confirm ? 'password' : 'text'"
         >
           <template v-slot:append>
@@ -65,7 +65,7 @@
           text-color="black"
           no-caps
           style="border-radius: 8px; font-size: 16px"
-          label="Confirmar"
+          :label="t('Confirmar')"
           @click="submit"
           :loading="loading"
         />

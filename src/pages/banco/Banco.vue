@@ -1,8 +1,8 @@
 <template>
-  <BackWrap title="Banco">
+  <BackWrap :title="t('Banco')">
     <q-page class="q-pa-md">
       <div class="">
-        <div class="font-bold text-[15px] mb-1">Nombre del banco</div>
+        <div class="font-bold text-[15px] mb-1">{{ t('banco1') }}</div>
         <q-select
           standout
           dense
@@ -10,28 +10,28 @@
           v-model="bankname"
           use-input
           @filter="filterFn"
-          :label="bankname ? undefined : 'Ingrese el nombre del banco'"
+          :label="bankname ? undefined : t('banco2')"
           :options="options"
           behavior="menu"
         />
 
-        <div class="font-bold text-[15px] mb-1">Nombre real</div>
+        <div class="font-bold text-[15px] mb-1">{{ t('banco3') }}</div>
         <q-input
           v-model="username"
           dense
           standout
           class="q-mb-md mine-input"
-          placeholder="Ingrese su nombre"
+          :placeholder="t('banco4')"
           type="text"
         ></q-input>
 
-        <div class="font-bold text-[15px] mb-1">Número de cuenta</div>
+        <div class="font-bold text-[15px] mb-1">{{ t('banco5') }}</div>
         <q-input
           v-model="cardnum"
           dense
           standout
           class="q-mb-md mine-input"
-          placeholder="Ingrese el Número de cuenta"
+          :placeholder="t('banco6')"
           type="text"
         ></q-input>
 
@@ -41,7 +41,7 @@
           text-color="black"
           no-caps
           style="border-radius: 8px; font-size: 16px"
-          label="Enviar"
+          :label="t('Enviar')"
           @click="submit"
           :loading="loading"
         />

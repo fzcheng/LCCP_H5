@@ -9,7 +9,7 @@
           <div class="center">
             <img src="~/assets/images/login/phone.png" alt="phone" class="w-[14px] h-[17.11px] block" />
           </div>
-          <div>Teléfono</div>
+          <div>{{ t('login1') }}</div>
         </label>
         <div class="flex items-center bg-[#2c2c2e] rounded-md px-4 q-mt-xs text-white">
           <span class="text-white mr-2 font-bold">+52</span>
@@ -17,7 +17,7 @@
             type="tel"
             v-model="mobile"
             autocomplete="username"
-            placeholder="Ingrese su numero de teléfono"
+            :placeholder="t('login2')"
             class="bg-transparent outline-none border-none flex-1 py-3 w-5 text-white placeholder-gray-400"
           />
         </div>
@@ -29,19 +29,19 @@
           <div class="center">
             <img src="~/assets/images/login/password.png" alt="phone" class="w-[16px] h-[18px] block" />
           </div>
-          <div>Nueva contraseña</div>
+          <div>{{ t('login3') }}</div>
         </label>
         <input
           autocomplete="current-password"
           type="password"
           v-model="password"
-          placeholder="Ingrese su contraseña"
+          :placeholder="t('login4')"
           class="bg-[#2c2c2e] px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-white placeholder-gray-400"
         />
       </div>
 
       <div class="text-right text-[#AEB4B3]">
-        <router-link to="/forget" class="a-nostyle">Olvidó la contraseña?</router-link>
+        <router-link to="/forget" class="a-nostyle">{{ t('login5') }}</router-link>
       </div>
 
       <div class="q-mt-lg">
@@ -49,7 +49,7 @@
           <q-btn
             color="primary"
             text-color="black"
-            label="Iniciar sesion"
+            :label="t('login6')"
             class="full-width"
             padding="sm"
             unelevated
@@ -62,7 +62,7 @@
         <router-link to="/register" class="mt-3 block a-nostyle">
           <q-btn
             color="primary"
-            label="Registrarse"
+            :label="t('login7')"
             class="full-width"
             padding="sm"
             no-caps
@@ -81,8 +81,10 @@ import { useQuasar } from 'quasar'
 import { doLoginApi, loginAdminApi } from 'src/api/user'
 import { useUserStore } from 'src/stores/user'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 
+const {t} = useI18n()
 const mobile = ref('')
 const password = ref('')
 

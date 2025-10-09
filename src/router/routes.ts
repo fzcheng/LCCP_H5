@@ -104,7 +104,10 @@ const routes: RouteRecordRaw[] = [
     component: () => import('pages/detalledebienes/GoodsInfo.vue')
   },
 
-
+  {
+    path: '/language',
+    component: () => import('pages/language/Language.vue')
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

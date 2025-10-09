@@ -4,7 +4,7 @@
       <div class="center mr-1">
         <img src="~/assets/images/orden/title.png" alt="title" style="width: 22px; height: 22px" />
       </div>
-      <div class="font-bold text-xl">Orden</div>
+      <div class="font-bold text-xl">{{ t('Orden') }}</div>
     </div>
 
     <div
@@ -12,30 +12,30 @@
       style="border: 1px solid #fcd33c"
     >
       <div class="text-center mx-4 my-1">
-        <div>Ganancia total</div>
+        <div>{{ t('orden1') }}</div>
         <div class="text-secondary font-bold">
-          <span>M$</span>
+          <span>{{ t('symbol') }}</span>
           <span class="text-lg">{{ total }}</span>
         </div>
       </div>
       <div class="text-center mx-4 my-1">
-        <div>Cantidad de producto</div>
+        <div>{{ t('orden2') }}</div>
         <div class="text-secondary font-bold">
           <span class="text-lg">{{ cantidadProducto }}</span>
         </div>
       </div>
       <div class="text-center mx-4 my-1">
-        <div>Ingresos pendientes de liquidar</div>
+        <div>{{ t('orden3') }}</div>
         <div class="text-secondary font-bold">
-          <span>M$</span>
+          <span>{{ t('symbol') }}</span>
           <span class="text-lg">{{ ingresosLiquidar }}</span>
         </div>
       </div>
     </div>
 
     <q-tabs v-model="tab" class="text-grey-5 q-mt-sm" active-color="primary" indicator-color="primary" align="justify">
-      <q-tab name="comprado" no-caps :ripple="false" style="font-size: 16px" label="Comprado" />
-      <q-tab name="ya" :ripple="false" no-caps label="Ya vencido" />
+      <q-tab name="comprado" no-caps :ripple="false" style="font-size: 16px" :label="t('orden4')" />
+      <q-tab name="ya" :ripple="false" no-caps :label="t('orden5')" />
     </q-tabs>
     <q-separator style="margin-top: -1px" color="grey-5" />
 
@@ -58,7 +58,9 @@ import YaVencido from './components/YaVencido.vue'
 import { goodsOrderApi } from 'src/api/order'
 import { UavInfoItem } from './typings'
 import { generateAsyncUpdate } from 'src/utils/async'
+import { useI18n } from 'vue-i18n'
 
+const {t} = useI18n()
 const tab = ref('comprado')
 
 const total = ref<number>(0)

@@ -40,8 +40,9 @@ import tab3Png from "src/assets/images/index/tab3.png";
 import tab3ActivePng from "src/assets/images/index/tab3_active.png";
 import tab4Png from "src/assets/images/index/tab4.png";
 import tab4ActivePng from "src/assets/images/index/tab4_active.png";
+import { useI18n } from "vue-i18n";
 
-
+const {t} = useI18n();
 const router = useRouter();
 
 const tabs = [
@@ -49,28 +50,28 @@ const tabs = [
     path: "/",
     icon: tab1Png,
     activeIcon: tab1ActivePng,
-    label: "Inicio",
+    label: t('Inicio'),
     name: "IndexPage"
   },
   {
     path: "/orden",
     icon: tab2Png,
     activeIcon: tab2ActivePng,
-    label: "Orden",
+    label: t('Orden'),
     name: "OrdenPage"
   },
   {
     path: "/eqipo",
     icon: tab3Png,
     activeIcon: tab3ActivePng,
-    label: "Equipo",
+    label: t('Equipo'),
     name: "EqipoPage"
   },
   {
     path: "/mi",
     icon: tab4Png,
     activeIcon: tab4ActivePng,
-    label: "Mi",
+    label: t('Mi'),
     name: "MiPage"
   }
 ]

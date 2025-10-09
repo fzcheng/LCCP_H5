@@ -1,18 +1,18 @@
 <template>
-  <BackWrap title="Recargar">
+  <BackWrap :title="t('Recargar')">
     <q-page class="q-pa-md">
       <div class="rounded-xl p-3 flex items-center justify-between bg-[#fcd33c12]" style="border: 1px solid #fcd33c">
-        <div class="text-base">Mi saldo</div>
+        <div class="text-base">{{ t('recargar1') }}</div>
 
         <div class="text-secondary">
-          <span>M$</span>
+          <span>{{ t('symbol') }}</span>
           <span class="font-bold text-lg">{{ balance }}</span>
         </div>
       </div>
 
       <div class="flex items-center q-mt-md">
         <div class="w-[2px] bg-primary h-[12px] mr-1"></div>
-        <div class="font-medium">Recarga de saldo</div>
+        <div class="font-medium">{{ t('recargar2') }}</div>
       </div>
 
       <div class="grid grid-flow-row grid-cols-3 gap-3 q-mt-sm">
@@ -29,18 +29,18 @@
           padding="10px xs"
           @click="activeMoney = item"
         >
-          <span :class="{ 'text-white': activeMoney !== item }">M${{ item }}</span>
+          <span :class="{ 'text-white': activeMoney !== item }">{{ t('symbol') }}{{ item }}</span>
         </q-btn>
       </div>
 
       <div class="rounded-md px-3 py-2 flex items-center q-mt-md font-bold text-lg" style="border: 1px solid #feba1b">
-        <div class="mr-2">M$</div>
+        <div class="mr-2">{{ t('symbol') }}</div>
         <input
           type="number"
           inputmode="numeric"
           v-model.number="activeMoney"
           class="border-none bg-transparent outline-none flex-1 w-10 text-white placeholder:text-gray-400"
-          placeholder="Ingrese el monto de la recarga"
+          :placeholder="t('recargar3')"
         />
       </div>
 
@@ -51,7 +51,7 @@
         class="full-width q-mt-lg q-mb-xs"
         no-caps
         style="font-size: 16px; border-radius: 8px; font-weight: bold"
-        label="Enviar"
+        :label="t('Enviar')"
         :loading="loading"
         @click="submit"
       />
@@ -90,7 +90,9 @@ import { ref } from 'vue'
 import { useWebView } from '../webview/webview'
 import { useRouter } from 'vue-router'
 import { baseApiUrl } from 'src/config/env.config'
+import { useI18n } from 'vue-i18n'
 
+const {t} = useI18n()
 type Msg = {
   id: number
   title: string

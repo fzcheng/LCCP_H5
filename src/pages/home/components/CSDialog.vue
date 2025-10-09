@@ -1,7 +1,7 @@
 <template>
   <q-dialog v-model="dialog">
     <div class="full-width bg-[#222530] pb-4 px-2" style="border-radius: 12px !important">
-      <div class="text-center q-mt-md text-lg font-bold">Notificar</div>
+      <div class="text-center q-mt-md text-lg font-bold">{{ t('Notificar') }}</div>
       <div class="px-2 mt-2 text-[13px]" v-html="groupmsg"></div>
 
       <div class="flex items-center justify-center bg-[#222530] rounded-lg px-2 py-1 mt-2">
@@ -9,7 +9,7 @@
           <div class="center mr-2">
             <img src="~/assets/images/public/TG.png" alt="TG.png" width="36px" height="36px" />
           </div>
-          <div class="flex-1 w-10">Customer service</div>
+          <div class="flex-1 w-10">{{ t('home1') }}</div>
         </div>
         <a :href="info?.chats_link_cs ?? ''" class="a-nostyle">
           <q-btn
@@ -19,7 +19,7 @@
             no-caps
             unelevated
             style="border-radius: 6px"
-            label="Ir ahora"
+            :label="t('home2')"
           />
         </a>
       </div>
@@ -29,7 +29,7 @@
           <div class="center mr-2">
             <img src="~/assets/images/public/TG.png" alt="TG.png" width="36px" height="36px" />
           </div>
-          <div class="flex-1 w-10">Telegram</div>
+          <div class="flex-1 w-10">{{ t('Telegram') }}</div>
         </div>
         <a :href="info?.chats_link_telegram ?? ''" class="a-nostyle">
           <q-btn
@@ -39,7 +39,7 @@
             no-caps
             unelevated
             style="border-radius: 6px"
-            label="Ir ahora"
+            :label="t('home2')"
           />
         </a>
       </div>
@@ -49,7 +49,7 @@
           <div class="center mr-2">
             <img src="~/assets/images/public/WhatsApp.png" alt="TG.png" width="36px" height="36px" />
           </div>
-          <div class="flex-1 w-10">WhatsApp</div>
+          <div class="flex-1 w-10">{{ t('WhatsApp') }}</div>
         </div>
         <a :href="info?.chats_link_whatsapp ?? ''" class="a-nostyle">
           <q-btn
@@ -59,7 +59,7 @@
             no-caps
             unelevated
             style="border-radius: 6px"
-            label="Ir ahora"
+            :label="t('home2')"
           />
         </a>
       </div>
@@ -69,7 +69,7 @@
           text-color="black"
           class="full-width"
           style="border-radius: 6px"
-          label="TENGO ESTE"
+          :label="t('home3')"
           unelevated
           @click="dialog = false"
         />
@@ -83,8 +83,9 @@ import { BigNumber } from 'bignumber.js';
 import { Chat } from '../typings'
 import { ref, watch } from 'vue';
 import { isShowLock } from './CSDialog';
+import { useI18n } from 'vue-i18n';
 const dialog = ref(false)
-
+const {t} = useI18n()
 const props = defineProps<{
   info?: Chat | undefined
   groupmsg: string

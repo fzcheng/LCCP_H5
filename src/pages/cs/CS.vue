@@ -1,9 +1,9 @@
 <template>
-  <BackWrap title="CS">
+  <BackWrap :title="t('CS')">
     <q-page class="q-pa-md">
-      <div class="text-center font-bold">Encantada de ayudarte!</div>
+      <div class="text-center font-bold">{{ t('cs1') }}</div>
       <div class="text-center text-[13px] mt-0.5">
-        Haga clic en la informacion de contacto a continuación para ponerse en contacto con nosotros ..
+        {{ t('cs2') }}
       </div>
 
       <div class="flex items-center justify-center bg-[#222530] rounded-lg p-4 mt-4">
@@ -11,7 +11,7 @@
           <div class="center mr-2">
             <img src="~/assets/images/public/TG.png" alt="TG.png" width="36px" height="36px" />
           </div>
-          <div class="flex-1 w-10">Customer service</div>
+          <div class="flex-1 w-10">{{ t('home1') }}</div>
         </div>
         <a :href="info?.chats_link_cs ?? ''" class="a-nostyle">
           <q-btn
@@ -21,7 +21,7 @@
             no-caps
             unelevated
             style="border-radius: 6px"
-            label="Ir ahora"
+            :label="t('home2')"
           />
         </a>
       </div>
@@ -31,7 +31,7 @@
           <div class="center mr-2">
             <img src="~/assets/images/public/TG.png" alt="TG.png" width="36px" height="36px" />
           </div>
-          <div class="flex-1 w-10">Telegram</div>
+          <div class="flex-1 w-10">{{ t('Telegram') }}</div>
         </div>
         <a :href="info?.chats_link_telegram ?? ''" class="a-nostyle">
           <q-btn
@@ -41,7 +41,7 @@
             no-caps
             unelevated
             style="border-radius: 6px"
-            label="Ir ahora"
+            :label="t('home2')"
           />
         </a>
       </div>
@@ -51,7 +51,7 @@
           <div class="center mr-2">
             <img src="~/assets/images/public/WhatsApp.png" alt="TG.png" width="36px" height="36px" />
           </div>
-          <div class="flex-1 w-10">WhatsApp</div>
+          <div class="flex-1 w-10">{{ t('WhatsApp') }}</div>
         </div>
         <a :href="info?.chats_link_whatsapp ?? ''" class="a-nostyle">
           <q-btn
@@ -61,7 +61,7 @@
             no-caps
             unelevated
             style="border-radius: 6px"
-            label="Ir ahora"
+            :label="t('home2')"
           />
         </a>
       </div>
@@ -73,7 +73,8 @@
 import { indexApi } from 'src/api'
 import BackWrap from 'src/components/backwrap/BackWrap.vue'
 import { ref } from 'vue'
-
+import { useI18n } from 'vue-i18n'
+const {t} = useI18n()
 type Chat = {
   id: number
   parent_id: number

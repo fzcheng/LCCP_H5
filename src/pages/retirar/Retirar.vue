@@ -1,28 +1,28 @@
 <template>
-  <BackWrap title="Retirar">
+  <BackWrap :title="t('Retirar')">
     <q-page class="q-pa-md">
       <div class="rounded-xl p-3 flex items-center justify-between bg-[#fcd33c12]" style="border: 1px solid #fcd33c">
-        <div class="text-base">Mi saldo</div>
+        <div class="text-base">{{ t('retirar1') }}</div>
 
         <div class="text-secondary">
-          <span>M$</span>
+          <span>{{ t('symbol') }}</span>
           <span class="font-bold text-lg">{{ balance }}</span>
         </div>
       </div>
 
       <div class="flex items-center q-mt-md">
         <div class="w-[2px] bg-primary h-[12px] mr-1"></div>
-        <div class="font-medium">Retiro de saldo</div>
+        <div class="font-medium">{{ t('retirar2') }}</div>
       </div>
 
       <div class="rounded-md p-3 flex items-center mt-3 font-bold text-[15px]" style="border: 1px solid #feba1b">
-        <div class="mr-2">M$</div>
+        <div class="mr-2">{{ t('symbol') }}</div>
         <input
           type="number"
           inputmode="numeric"
           v-model.number="amount"
           class="border-none bg-transparent outline-none flex-1 w-10 text-white placeholder:text-gray-400"
-          placeholder="Ingrese el monto del retiro"
+          :placeholder="t('retirar3')"
         />
       </div>
 
@@ -33,7 +33,7 @@
         class="full-width q-mt-lg q-mb-xs"
         no-caps
         style="font-size: 16px; border-radius: 8px; font-weight: bold"
-        label="Enviar"
+        :label="t('Enviar')"
         :loading="loading"
         @click="submit"
       />
@@ -54,7 +54,9 @@ import { useQuasar } from 'quasar'
 import { moneyWithdrawApi, moneyWithdrawDoApi } from 'src/api/money'
 import BackWrap from 'src/components/backwrap/BackWrap.vue'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const {t} = useI18n()
 const $q = useQuasar()
 
 type Msg = {

@@ -12,7 +12,7 @@
           alt="action1"
         />
       </q-btn>
-      <div class="mt-0.5">Banco</div>
+      <div class="mt-0.5">{{ t('Banco') }}</div>
     </router-link>
     <router-link to="/factura" class=" a-nostyle flex flex-col justify-center items-center">
       <q-btn color="secondary" padding="14px 14px" style="border-radius: 6px" outline unelevated>
@@ -26,7 +26,7 @@
           alt="action3"
         />
       </q-btn>
-      <div class="mt-0.5">Factura</div>
+      <div class="mt-0.5">{{ t('Factura') }}</div>
     </router-link>
 
      <router-link to="/cs" class="a-nostyle flex flex-col justify-center items-center">
@@ -41,11 +41,15 @@
           alt="action2"
         />
       </q-btn>
-      <div class="mt-0.5">CS</div>
+      <div class="mt-0.5">{{ t('CS') }}</div>
     </router-link>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const {t} = useI18n()
+</script>
 
 <style lang="scss" scoped></style>

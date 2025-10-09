@@ -6,7 +6,7 @@
           <div class="center mr-3">
             <img src="~/assets/images/mi/btn1.png" alt="btn" width="24px" height="12px" />
           </div>
-          <div class="flex-1 w-5 ">Cambiar contraseña</div>
+          <div class="flex-1 w-5 ">{{ t('mi2') }}</div>
         </div>
       </div>
       <div class="center">
@@ -20,7 +20,7 @@
           <div class="center mr-3">
             <img src="~/assets/images/mi/btn2.png" alt="btn" width="24px" height="24px" />
           </div>
-          <div class="flex-1 w-5 ">Registro de recarga</div>
+          <div class="flex-1 w-5 ">{{ t('mi3') }}</div>
         </div>
       </div>
       <div class="center">
@@ -34,7 +34,7 @@
           <div class="center mr-3">
             <img src="~/assets/images/mi/btn3.png" alt="btn" width="24px" height="24px" />
           </div>
-          <div class="flex-1 w-5 ">Registros de retiro</div>
+          <div class="flex-1 w-5 ">{{ t('mi4') }}</div>
         </div>
       </div>
       <div class="center">
@@ -48,7 +48,7 @@
           <div class="center mr-3">
             <img src="~/assets/images/mi/btn4.png" alt="btn" width="24px" height="24px" />
           </div>
-          <div class="flex-1 w-5 ">Descargar</div>
+          <div class="flex-1 w-5 ">{{ t('Descargar') }}</div>
         </div>
       </div>
       <div class="center">
@@ -62,7 +62,7 @@
           <div class="center mr-3">
             <img src="~/assets/images/mi/btn5.png" alt="btn" width="24px" height="24px" />
           </div>
-          <div class="flex-1 w-5 ">Salir</div>
+          <div class="flex-1 w-5 ">{{ t('Salir') }}</div>
         </div>
       </div>
       <div class="center">
@@ -75,7 +75,9 @@
 <script setup lang="ts">
 import { downLink } from 'src/config/env.config';
 import { useUserStore } from 'src/stores/user';
+import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
+const {t} = useI18n()
 const router = useRouter()
 
 const logout = () => {

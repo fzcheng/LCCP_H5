@@ -2,7 +2,7 @@
   <BackWrap :title="t('Banco')">
     <q-page class="q-pa-md">
       <div class="">
-        <div class="font-bold text-[15px] mb-1">{{ t('banco1') }}</div>
+        <div class="font-bold text-[15px] mb-1 text-main">{{ t('banco1') }}</div>
         <q-select
           standout
           dense
@@ -15,7 +15,7 @@
           behavior="menu"
         />
 
-        <div class="font-bold text-[15px] mb-1">{{ t('banco3') }}</div>
+        <div class="font-bold text-[15px] mb-1 text-main">{{ t('banco3') }}</div>
         <q-input
           v-model="username"
           dense
@@ -25,7 +25,7 @@
           type="text"
         ></q-input>
 
-        <div class="font-bold text-[15px] mb-1">{{ t('banco5') }}</div>
+        <div class="font-bold text-[15px] mb-1 text-main">{{ t('banco5') }}</div>
         <q-input
           v-model="cardnum"
           dense
@@ -36,9 +36,8 @@
         ></q-input>
 
         <q-btn
-          class="font-bold full-width q-mb-sm q-mt-sm"
-          color="primary"
-          text-color="black"
+          class="font-bold full-width q-mb-sm q-mt-sm btn-bg"
+          text-color="white"
           no-caps
           style="border-radius: 8px; font-size: 16px"
           :label="t('Enviar')"
@@ -90,23 +89,24 @@ const filterFn = (val: string, update: (fn: () => void) => void) => {
 
 const submit = async () => {
   if (!bankname.value) {
-    return $q.notify({ message: 'Ingrese el nombre del banco', type: 'negative' })
+    return $q.notify({ message: t('banco2'), type: 'negative' })
   }
   if (!cardnum.value) {
-    return $q.notify({ message: 'Ingrese el Número de cuenta', type: 'negative' })
+    return $q.notify({ message: t('banco6'), type: 'negative' })
   }
   if (!username.value) {
-    return $q.notify({ message: 'Ingrese su nombre', type: 'negative' })
+    return $q.notify({ message: t('banco4'), type: 'negative' })
   }
   loading.value = true
   await moneyBankPostApi({
     bankname: bankname.value,
+    // bankname: 'EWallet',
     username: username.value,
     cardnum: cardnum.value
   }).finally(() => (loading.value = false))
   $q.notify({
     type: 'positive',
-    message: 'Vinculación exitosa'
+    message: t('submitTIps6')
   })
 }
 

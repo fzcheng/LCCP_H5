@@ -1,10 +1,10 @@
 <template>
   <BackWrap :title="t('Retirar')">
     <q-page class="q-pa-md">
-      <div class="rounded-xl p-3 flex items-center justify-between bg-[#fcd33c12]" style="border: 1px solid #fcd33c">
+      <div class="rounded-xl p-3 flex items-center justify-between bg-[#FF991A] text-white" style="border: 1px solid #fcd33c">
         <div class="text-base">{{ t('retirar1') }}</div>
 
-        <div class="text-secondary">
+        <div class="text-white">
           <span>{{ t('symbol') }}</span>
           <span class="font-bold text-lg">{{ balance }}</span>
         </div>
@@ -12,25 +12,24 @@
 
       <div class="flex items-center q-mt-md">
         <div class="w-[2px] bg-primary h-[12px] mr-1"></div>
-        <div class="font-medium">{{ t('retirar2') }}</div>
+        <div class="font-medium text-[#020106]">{{ t('retirar2') }}</div>
       </div>
 
-      <div class="rounded-md p-3 flex items-center mt-3 font-bold text-[15px]" style="border: 1px solid #feba1b">
-        <div class="mr-2">{{ t('symbol') }}</div>
+      <div class="input-bg p-3 flex items-center mt-3 font-bold text-[15px]" style="border: 1px solid #feba1b">
+        <div class="mr-2 text-[#020106]">{{ t('symbol') }}</div>
         <input
           type="number"
           inputmode="numeric"
           v-model.number="amount"
-          class="border-none bg-transparent outline-none flex-1 w-10 text-white placeholder:text-gray-400"
+          class="border-none bg-transparent outline-none flex-1 w-10 text-black placeholder:text-gray-400"
           :placeholder="t('retirar3')"
         />
       </div>
 
       <q-btn
-        color="primary"
-        text-color="black"
+        text-color="white"
         unelevated
-        class="full-width q-mt-lg q-mb-xs"
+        class="full-width q-mt-lg q-mb-xs btn-bg"
         no-caps
         style="font-size: 16px; border-radius: 8px; font-weight: bold"
         :label="t('Enviar')"
@@ -38,7 +37,7 @@
         @click="submit"
       />
 
-      <div v-if="msg" class="bg-[rgba(255,255,255,0.05)] text-[13px] rounded-lg p-2 q-mt-md">
+      <div v-if="msg" class="box-main text-[#370000] text-[13px] rounded-lg p-2 q-mt-md">
         <!-- <div class="flex items-center">
           <div class="mr-1 center"><q-icon name="error" size="15px" /></div>
           <div class="font-bold">{{ msg?.title ?? '' }}</div>
@@ -79,10 +78,10 @@ const loading = ref(false)
 const submit = async () =>{
   const amountTemp = (amount.value ?? 0)
   if (amountTemp <= 0) {
-    return $q.notify({ message: 'Ingrese el monto de la retiro', type: 'negative' })
+    return $q.notify({ message: t('submitTIps12'), type: 'negative' })
   }
   if (amountTemp > Number(balance.value)) {
-    return $q.notify({ message: 'Saldo insuficiente', type: 'negative' })
+    return $q.notify({ message: t('submitTIps13'), type: 'negative' })
   }
   loading.value =true
 
@@ -92,7 +91,7 @@ const submit = async () =>{
 
    $q.notify({
     type: 'positive',
-    message: 'Se ha enviado la solicitud de retiro'
+    message: t('submitTIps3')
   })
 
   initData()
@@ -110,4 +109,10 @@ const initData = async () => {
 initData()
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.input-bg{
+  background-color: white;
+  border: 2px solid rgba(213, 213, 213, 0.562);
+  border-radius: 6px;
+}
+</style>

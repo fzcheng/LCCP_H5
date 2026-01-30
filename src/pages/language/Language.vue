@@ -40,7 +40,7 @@ type LanguageItem = {
   value: string
 }
 // const list = ref<LanguageItem[]>([{label: 'English', value: 'en-US'},{label:'Bahasa Melayu',value:'ms-MY'}])
-const list = ref<LanguageItem[]>([{label: 'English', value: 'en-US'},{label:'Bahasa Melayu',value:'ms-MY'},{label:'Español',value:'es-ES'}])
+const list = ref<LanguageItem[]>([{label: 'English', value: 'en-US'},{label:'Español',value:'es-MX'}])
 const switchLanguage = async (item: LanguageItem) => {
   if (item.value === locale.value) return
   // $q.loading.show()

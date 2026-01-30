@@ -3,9 +3,11 @@
     class="flex flex-col items-center justify-center min-h-screen q-pa-md"
   >
     <!-- Logo 或头像区域 -->
-    <div class="w-36 h-36 bg-yellow-400 rounded-lg mb-5 logo-png"></div>
-
-    <form class="w-full space-y-4">
+    <!-- <div class="w-36 h-36 bg-yellow-400 rounded-lg mb-5 logo-png"></div> -->
+    <div class="flex items-center justify-center">
+      <img src="~/assets/images/login/icon.png" class="w-[80%] block" />
+    </div>
+    <form class="w-full space-y-2">
       <div>
         <label class="text-white font-bold text-base flex items-center gap-2">
           <div class="center">
@@ -15,24 +17,24 @@
               class="w-[14px] h-[17.11px] block"
             />
           </div>
-          <div>{{ t('login1') }}</div>
+          <div class="text-main">{{ t('login1') }}</div>
         </label>
         <div
-          class="flex items-center bg-[#2c2c2e] rounded-md q-mt-xs text-white"
+          class="flex items-center bg-white rounded-md q-mt-xs text-white"
         >
-          <div class="text-white mr-2 font-bold ml-4">+52</div>
+          <div class="mr-2 font-bold ml-4 text-main">+52</div>
           <input
             type="tel"
             v-model="mobile"
             autocomplete="username"
             :placeholder="t('login2')"
-            class="bg-transparent mr-4 outline-none border-none flex-1 py-3 w-5 text-white placeholder-gray-400"
+            class="bg-transparent mr-4 outline-none border-none flex-1 py-3 w-5 text-main placeholder-gray-400"
           />
 
           <q-btn
-            color="primary"
+            class="btn-bg"
             unelevated
-            text-color="black"
+            text-color="white"
             style="transform: scale(0.8); border-radius: 6px"
             size="xs"
             padding="sm sm"
@@ -54,13 +56,13 @@
               class="w-[14px] h-[17.11px] block"
             />
           </div>
-          <div>{{ t('login11') }}</div>
+          <div class="text-main">{{ t('login11') }}</div>
         </label>
         <input
           type="text"
           v-model="verificationCode"
           :placeholder="t('login12')"
-          class="bg-[#2c2c2e] px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-white placeholder-gray-400"
+          class="bg-white px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-[#370000] placeholder-gray-400"
         />
       </div>
 
@@ -74,14 +76,14 @@
               class="w-[16px] h-[18px] block"
             />
           </div>
-          <div>{{ t('login13') }}</div>
+          <div class="text-main">{{ t('login13') }}</div>
         </label>
         <input
           autocomplete="current-password"
           type="password"
           v-model="password"
           :placeholder="t('login4')"
-          class="bg-[#2c2c2e] px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-white placeholder-gray-400"
+          class="bg-white px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-[#370000] placeholder-gray-400"
         />
       </div>
 
@@ -94,24 +96,23 @@
               class="w-[16px] h-[18px] block"
             />
           </div>
-          <div>{{ t('SecurityPassword4') }}</div>
+          <div class="text-main">{{ t('SecurityPassword4') }}</div>
         </label>
         <input
           autocomplete="new-password"
           type="password"
           v-model="passwordC"
           :placeholder="t('login14')"
-          class="bg-[#2c2c2e] px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-white placeholder-gray-400"
+          class="bg-white px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-[#370000] placeholder-gray-400"
         />
       </div>
 
       <div class="q-mt-lg">
         <div>
           <q-btn
-            color="primary"
-            text-color="black"
+            text-color="white"
             :label="t('Enviar')"
-            class="full-width"
+            class="full-width btn-bg"
             padding="sm"
             unelevated
             no-caps
@@ -121,12 +122,11 @@
         </div>
         <router-link to="/login" replace  class="mt-3 block a-nostyle">
           <q-btn
-            color="primary"
+            text-color="main"
             :label="t('login6')"
-            class="full-width"
+            class="full-width bg-white"
             padding="sm"
             no-caps
-            outline
             unelevated
             style="border-radius: 8px; font-weight: bold"
           />
@@ -159,7 +159,7 @@ const submit = async () => {
   if (!mobile.value) {
     $q.notify({
       type: "negative",
-      message: "Por favor, introduzca su número de móvil",
+      message: t('submitTIps7'),
     });
     return;
   }
@@ -167,7 +167,7 @@ const submit = async () => {
   if (!password.value) {
     $q.notify({
       type: "negative",
-      message: "Por favor, introduzca su contraseña",
+      message: t('submitTIps8'),
     });
     return;
   }
@@ -175,7 +175,7 @@ const submit = async () => {
   if (!passwordC.value) {
     $q.notify({
       type: "negative",
-      message: "Por favor, vuelva a escribir su contraseña",
+      message: t('submitTIps9'),
     });
     return;
   }
@@ -183,7 +183,7 @@ const submit = async () => {
   if (passwordC.value !== password.value) {
     $q.notify({
       type: "negative",
-      message: "Las contraseñas no coinciden",
+      message: t('submitTIps10'),
     });
     return;
   }
@@ -199,7 +199,7 @@ const submit = async () => {
   });
   $q.notify({
     type: 'positive',
-    message: 'Has olvidado tu contraseña'
+    message: t('submitTIps2')
   })
 
   router.replace("/login");
@@ -215,7 +215,7 @@ const getCode = async () => {
   if (!mobile.value) {
     $q.notify({
       type: "negative",
-      message: "Por favor, introduzca su número de móvil",
+      message: t('submitTIps7'),
     });
     return;
   }

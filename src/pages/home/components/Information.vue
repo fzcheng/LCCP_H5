@@ -7,7 +7,7 @@
       class="flex-1"
       :loading="false"
       ref="MarqueeRef"
-      style="width: 100px"
+      style="width: 100px;color: black;"
     >
       <div  >
         {{ msg }}
@@ -25,6 +25,6 @@ defineProps<{
 
 <style lang="scss" scoped>
 .panel-bg{
-  background: linear-gradient(90deg, #181a20 0%, #313237 20%);;
+  background: linear-gradient(90deg, #cacaca3e 0%, #9c9c9c69 50%);
 }
 </style>

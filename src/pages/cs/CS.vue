@@ -1,22 +1,22 @@
 <template>
   <BackWrap :title="t('CS')">
     <q-page class="q-pa-md">
-      <div class="text-center font-bold">{{ t('cs1') }}</div>
-      <div class="text-center text-[13px] mt-0.5">
+      <div class="text-center font-bold text-main">{{ t('cs1') }}</div>
+      <div class="text-center text-[13px] mt-0.5 text-main">
         {{ t('cs2') }}
       </div>
 
-      <div class="flex items-center justify-center bg-[#222530] rounded-lg p-4 mt-4">
+      <div v-if="!!info?.chats_link_cs" class="box-main flex items-center justify-center rounded-lg p-4 mt-4 text-main">
         <div class="flex-1 w-20 flex items-center">
           <div class="center mr-2">
             <img src="~/assets/images/public/TG.png" alt="TG.png" width="36px" height="36px" />
           </div>
-          <div class="flex-1 w-10">{{ t('home1') }}</div>
+          <div class="flex-1 w-10">{{ t('cs3') }}</div>
         </div>
         <a :href="info?.chats_link_cs ?? ''" class="a-nostyle">
           <q-btn
-            color="primary"
-            text-color="black"
+            text-color="white"
+            class="btn-bg"
             size="sm"
             no-caps
             unelevated
@@ -26,17 +26,17 @@
         </a>
       </div>
 
-      <div class="flex items-center justify-center bg-[#222530] rounded-lg p-4 mt-4">
+      <div v-if="!!info?.chats_link_telegram_channel" class="box-main flex items-center justify-center rounded-lg p-4 mt-4 text-main">
         <div class="flex-1 w-20 flex items-center">
           <div class="center mr-2">
             <img src="~/assets/images/public/TG.png" alt="TG.png" width="36px" height="36px" />
           </div>
-          <div class="flex-1 w-10">{{ t('Telegram') }}</div>
+          <div class="flex-1 w-10">{{ t('cs4') }}</div>
         </div>
-        <a :href="info?.chats_link_telegram ?? ''" class="a-nostyle">
+        <a :href="info?.chats_link_telegram_channel ?? ''" class="a-nostyle">
           <q-btn
-            color="primary"
-            text-color="black"
+            text-color="white"
+            class="btn-bg"
             size="sm"
             no-caps
             unelevated
@@ -46,17 +46,37 @@
         </a>
       </div>
 
-      <div class="flex items-center justify-center bg-[#222530] rounded-lg p-4 mt-4">
+      <div v-if="!!info?.chats_link_whatsapp" class="box-main flex items-center justify-center rounded-lg p-4 mt-4 text-main">
         <div class="flex-1 w-20 flex items-center">
           <div class="center mr-2">
             <img src="~/assets/images/public/WhatsApp.png" alt="TG.png" width="36px" height="36px" />
           </div>
-          <div class="flex-1 w-10">{{ t('WhatsApp') }}</div>
+          <div class="flex-1 w-10">{{ t('cs5') }}</div>
         </div>
         <a :href="info?.chats_link_whatsapp ?? ''" class="a-nostyle">
           <q-btn
-            color="primary"
-            text-color="black"
+            text-color="white"
+            class="btn-bg"
+            size="sm"
+            no-caps
+            unelevated
+            style="border-radius: 6px"
+            :label="t('home2')"
+          />
+        </a>
+      </div>
+
+      <div v-if="!!info?.chats_link_telegram" class="box-main flex items-center justify-center rounded-lg p-4 mt-4 text-main">
+        <div class="flex-1 w-20 flex items-center">
+          <div class="center mr-2">
+            <img src="~/assets/images/public/TG.png" alt="TG.png" width="36px" height="36px" />
+          </div>
+          <div class="flex-1 w-10">{{ t('cs6') }}</div>
+        </div>
+        <a :href="info?.chats_link_telegram ?? ''" class="a-nostyle">
+          <q-btn
+            text-color="white"
+            class="btn-bg"
             size="sm"
             no-caps
             unelevated
@@ -97,8 +117,29 @@ type Chat = {
   google_is_bind: number
   i_code: string
 }
-
 const info = ref<Chat>()
+// const info = ref<Chat>({
+//   id: 1,
+//   parent_id: 0,
+//   username: 'test_user',
+//   password: '***',
+//   phone: '1234567890',
+//   email: 'test@example.com',
+//   chats_link_telegram: 'https://t.me/test_group',
+//   chats_link_telegram_channel: 'https://t.me/test_channel',
+//   chats_link_whatsapp: 'https://wa.me/1234567890',
+//   chats_link_cs: 'https://t.me/cs_support',
+//   login_at: null,
+//   login_ip: '127.0.0.1',
+//   login_num: 1,
+//   authorize: 'token_xxx',
+//   status: 1,
+//   create_at: '2023-01-01',
+//   google_secret: '',
+//   google_url: '',
+//   google_is_bind: 0,
+//   i_code: '123456'
+// })
 
 const initData = async () => {
   const res = await indexApi()

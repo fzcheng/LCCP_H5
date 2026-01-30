@@ -7,8 +7,7 @@
       <q-tabs
         no-caps
         active-class="tabcolor"
-        indicator-color="transparent"
-        style="background-color: #191a1f; color: #747682"
+        style="background-color: #F9EFE2; color: #747682"
         class=""
       >
         <q-route-tab v-for="item in tabs" :key="item.path"  class="q-py-xs "   :to="item.path" replace >
@@ -91,6 +90,6 @@ const activeTab = computed(() => {
 
 <style lang="scss" scoped>
 .tabcolor {
-  color: #fb931e;
+  color: #D7831E;
 }
 </style>

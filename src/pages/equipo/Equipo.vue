@@ -4,18 +4,18 @@
       <div class="center mr-1.5">
         <img src="~/assets/images/equipo/title.png" alt="title" style="width: 22px; height: 22px" />
       </div>
-      <div class="font-bold text-xl">{{ t('Equipo') }}</div>
+      <div class="font-bold text-[#370000] text-xl">{{ t('Equipo') }}</div>
     </div>
 
     <div>
-      <div class="font-medium">{{ t('Invitar') }}:</div>
+      <div class="font-medium text-[#370000]">{{ t('Invitar') }}:</div>
       <div class="flex items-center justify-between mt-1">
-        <div class="bg-[#222530] rounded-lg px-3 py-1.5 font-bold text-base min-h-[36px]">{{ inviteCode }}</div>
+        <div class="bg-white rounded-lg px-3 py-1.5 font-bold text-[#370000] text-base min-h-[36px]">{{ inviteCode }}</div>
         <q-btn
-          @click="copyTextNotify(inviteCode)"
+          @click="copyTextNotify(inviteCode,t)"
           color="primary"
           class="q-mr-sm"
-          text-color="black"
+          text-color="white"
           padding="xs 12px"
           style="border-radius: 6px"
           size="sm"
@@ -25,13 +25,13 @@
       </div>
     </div>
     <div class="q-mt-sm">
-      <div class="font-medium">{{ t('Invitar') }}:</div>
-      <div class="flex items-center q-px-sm py-2 justify-between mt-1 bg-[#222530] rounded-lg">
-        <div class="flex-1 w-20 mr-2 text-[13px]">{{ inviteLink }}</div>
+      <div class="font-medium text-[#370000]">{{ t('Invitar') }}:</div>
+      <div class="flex items-center q-px-sm py-2 justify-between mt-1 bg-white rounded-lg">
+        <div class="flex-1 w-20 mr-2 text-[13px] text-[#370000]">{{ inviteLink }}</div>
         <q-btn
-          @click="copyTextNotify(inviteLink)"
+          @click="copyTextNotify(inviteLink,t)"
           color="primary"
-          text-color="black"
+          text-color="white"
           padding="xs 12px"
           style="border-radius: 6px"
           size="sm"
@@ -43,7 +43,7 @@
 
     <Balance class="q-mt-md" :total-commission="data?.total_commission ?? 0" :total-people="data?.total_people ?? 0" />
 
-    <div class="rounded-lg px-2 py-3 q-mt-md bg-[#222530]">
+    <div class="rounded-lg px-2 py-3 q-mt-md box text-[#370000]">
       <div class="text-center">{{ t('equipo2') }}</div>
       <q-separator color="grey-7" class="q-my-sm" />
       <div class="flex items-center justify-between no-wrap text-xs">
@@ -60,11 +60,11 @@
         </div>
         <div class="text-center">
           <div>{{ t('equipo7') }}</div>
-          <div class="text-lg font-bold text-secondary">{{ data?.site_y_rebate ?? '0' }}%</div>
+          <div class="text-lg font-bold">{{ data?.site_y_rebate ?? '0' }}%</div>
         </div>
       </div>
     </div>
-    <div class="rounded-lg px-2 py-3 q-mt-md bg-[#222530]">
+    <div class="rounded-lg px-2 py-3 q-mt-md box text-[#370000]">
       <div class="text-center">{{ t('equipo3') }}</div>
       <q-separator color="grey-7" class="q-my-sm" />
       <div class="flex items-center justify-between no-wrap text-xs">
@@ -81,11 +81,11 @@
         </div>
         <div class="text-center">
           <div>{{ t('equipo7') }}</div>
-          <div class="text-lg font-bold text-secondary">{{ data?.site_e_rebate ?? 0 }}%</div>
+          <div class="text-lg font-bold">{{ data?.site_e_rebate ?? 0 }}%</div>
         </div>
       </div>
     </div>
-    <div class="rounded-lg px-2 py-3 q-mt-md bg-[#222530]">
+    <div class="rounded-lg px-2 py-3 q-mt-md box text-[#370000]">
       <div class="text-center">{{ t('equipo4') }}</div>
       <q-separator color="grey-7" class="q-my-sm" />
       <div class="flex items-center justify-between no-wrap text-xs">
@@ -102,12 +102,12 @@
         </div>
         <div class="text-center">
           <div>{{ t('equipo7') }}</div>
-          <div class="text-lg font-bold text-secondary">{{ data?.site_s_rebate ?? 0 }}%</div>
+          <div class="text-lg font-bold">{{ data?.site_s_rebate ?? 0 }}%</div>
         </div>
       </div>
     </div>
 
-    <div v-if="msg" class="bg-[#222530] text-[13px] rounded-lg p-2 q-mt-md">
+    <div v-if="msg" class="box text-[#370000] text-[13px] rounded-lg p-2 q-mt-md">
         <!-- <div class="flex items-center">
           <div class="mr-1 center"><q-icon name="error" size="15px" /></div>
           <div class="font-bold">{{ msg?.title ?? '' }}</div>
@@ -185,4 +185,9 @@ const initData = async () => {
 initData()
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.box{
+  background: rgba(237, 237, 237, 0.632);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+</style>

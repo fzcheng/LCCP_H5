@@ -1,24 +1,26 @@
 <template>
   <section class="flex flex-col items-center justify-center min-h-screen q-pa-md">
     <!-- Logo 或头像区域 -->
-    <div class="w-36 h-36 bg-yellow-400 rounded-lg mb-5 logo-png" style=""></div>
-
+    <!-- <div class="w-[80%] h-[80%] bg-yellow-400 rounded-lg mb-5 logo-png" style=""></div> -->
+    <div class="flex items-center justify-center">
+      <img src="~/assets/images/login/icon.png" class="w-[80%] block" />
+    </div>
     <form class="w-full space-y-4">
       <div>
         <label class="text-white font-bold text-base flex items-center gap-2">
           <div class="center">
             <img src="~/assets/images/login/phone.png" alt="phone" class="w-[14px] h-[17.11px] block" />
           </div>
-          <div>{{ t('login1') }}</div>
+          <div class="text-[#370000]">{{ t('login1') }}</div>
         </label>
-        <div class="flex items-center bg-[#2c2c2e] rounded-md px-4 q-mt-xs text-white">
-          <span class="text-white mr-2 font-bold">+52</span>
+        <div class="flex items-center bg-white rounded-md px-4 q-mt-xs text-[#370000]">
+          <span class="text-[#370000] mr-2 font-bold">+52</span>
           <input
             type="tel"
             v-model="mobile"
             autocomplete="username"
             :placeholder="t('login2')"
-            class="bg-transparent outline-none border-none flex-1 py-3 w-5 text-white placeholder-gray-400"
+            class="bg-transparent outline-none border-none flex-1 py-3 w-5 text-[#370000] placeholder-gray-400"
           />
         </div>
       </div>
@@ -29,28 +31,27 @@
           <div class="center">
             <img src="~/assets/images/login/password.png" alt="phone" class="w-[16px] h-[18px] block" />
           </div>
-          <div>{{ t('login3') }}</div>
+          <div class="text-[#370000]">{{ t('login3') }}</div>
         </label>
         <input
           autocomplete="current-password"
           type="password"
           v-model="password"
           :placeholder="t('login4')"
-          class="bg-[#2c2c2e] px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-white placeholder-gray-400"
+          class="bg-white px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-[#370000] placeholder-gray-400"
         />
       </div>
 
-      <div class="text-right text-[#AEB4B3]">
+      <div class="text-right text-[#343537]">
         <router-link to="/forget" class="a-nostyle">{{ t('login5') }}</router-link>
       </div>
 
       <div class="q-mt-lg">
         <div>
           <q-btn
-            color="primary"
-            text-color="black"
+            text-color="white"
             :label="t('login6')"
-            class="full-width"
+            class="full-width btn-bg"
             padding="sm"
             unelevated
             no-caps
@@ -61,12 +62,11 @@
         </div>
         <router-link to="/register" class="mt-3 block a-nostyle">
           <q-btn
-            color="primary"
             :label="t('login7')"
-            class="full-width"
+            text-color="black"
+            class="full-width bg-white"
             padding="sm"
             no-caps
-            outline
             unelevated
             style="border-radius: 8px; font-weight: bold"
           />
@@ -98,7 +98,7 @@ const submit = async () => {
   if (!mobile.value) {
     $q.notify({
       type: 'negative',
-      message: 'Por favor, introduzca su número de móvil'
+      message: t('submitTIps7')
     })
     return
   }
@@ -106,7 +106,7 @@ const submit = async () => {
   if (!password.value) {
     $q.notify({
       type: 'negative',
-      message: 'Por favor, introduzca su contraseña'
+      message: t('submitTIps8')
     })
     return
   }
@@ -135,7 +135,7 @@ initData()
 <style lang="scss" scoped>
 /* 无自定义样式，全部使用 Tailwind + Quasar 组件类 */
 .logo-png {
-  background: url(/logo.png) no-repeat;
+  background: url(src/assets/images/login/icon.png) no-repeat;
   background-size: 100% 100%;
 }
 </style>

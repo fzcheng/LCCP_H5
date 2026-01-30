@@ -6,7 +6,7 @@
           <img :src="qrcodeUrl" alt="qrcodeUrl" width="120px" height="120px" class="block" />
         </div>
         <div class="font-bold q-mt-md">Tipo de canal: {{ tdType }}</div>
-        <div class="flex items-center text-xs mt-1.5" @click="copyTextNotify(address)">
+        <div class="flex items-center text-xs mt-1.5" @click="copyTextNotify(address,t)">
           <div>Dirección :</div>
           <div class="flex-1 w-10">{{ address }}</div>
           <div class="center"><q-icon name="content_copy" /></div>
@@ -32,12 +32,12 @@
           padding="10px xs"
           @click="activeMoney = item"
         >
-          <span :class="{ 'text-white': activeMoney !== item }">M${{ item }}</span>
+          <span :class="{ 'text-white': activeMoney !== item }">EGP{{ item }}</span>
         </q-btn>
       </div>
 
       <div class="rounded-md p-3 flex items-center q-mt-md font-bold text-lg" style="border: 1px solid #feba1b">
-        <div class="mr-2">M$</div>
+        <div class="mr-2">EGP</div>
         <input
           type="number"
           inputmode="numeric"
@@ -80,7 +80,8 @@ import { computed, onMounted, onUpdated, ref, useTemplateRef } from 'vue'
 import { copyTextNotify } from 'src/utils/copy'
 import { moneyRechargeUsdtApi } from 'src/api/money'
 import { BigNumber } from 'bignumber.js'
-
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 const address = ref('')
 
 const qrcodeUrl = ref('')

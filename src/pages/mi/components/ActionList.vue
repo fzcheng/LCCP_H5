@@ -1,73 +1,38 @@
 <template>
-  <div >
-    <router-link to="/securitypassword"  class="a-nostyle flex items-center justify-between py-4 font-bold">
-      <div class="flex mr-2 items-center flex-1 w-20">
-        <div class="flex items-center flex-1 w-10">
-          <div class="center mr-3">
-            <img src="~/assets/images/mi/btn1.png" alt="btn" width="24px" height="12px" />
-          </div>
-          <div class="flex-1 w-5 ">{{ t('mi2') }}</div>
-        </div>
+  <div class="box flex flex-wrap items-start justify-start p-3 rounded-lg q-mt-md gap-y-3">
+    <router-link to="/securitypassword" class="a-nostyle flex flex-col items-center justify-start w-1/4 mb-3">
+      <div class="icon-box flex items-center justify-center mb-1">
+        <img src="~/assets/images/mi/btn1.png" alt="btn" width="30px" height="30px" />
       </div>
-      <div class="center">
-        <q-icon name="arrow_forward_ios" />
-      </div>
+      <div class="text-center text-md text-medium w-full px-1 text-[#250700]">{{ t('mi2') }}</div>
     </router-link>
 
-    <router-link to="/recargarlog" class=" a-nostyle flex items-center justify-between py-4 font-bold">
-      <div class="flex mr-2 items-center flex-1 w-20">
-        <div class="flex items-center flex-1 w-10">
-          <div class="center mr-3">
-            <img src="~/assets/images/mi/btn2.png" alt="btn" width="24px" height="24px" />
-          </div>
-          <div class="flex-1 w-5 ">{{ t('mi3') }}</div>
-        </div>
+    <router-link to="/recargarlog" class="a-nostyle flex flex-col items-center justify-start w-1/4 mb-3">
+      <div class="icon-box flex items-center justify-center mb-1">
+        <img src="~/assets/images/mi/btn2.png" alt="btn" width="30px" height="30px" />
       </div>
-      <div class="center">
-        <q-icon name="arrow_forward_ios" />
-      </div>
+      <div class="text-center text-xs text-medium w-full px-1 text-[#250700]">{{ t('mi3') }}</div>
     </router-link>
 
-    <router-link to="/retirarlog" class="a-nostyle flex items-center justify-between py-4 font-bold">
-      <div class="flex mr-2 items-center flex-1 w-20">
-        <div class="flex items-center flex-1 w-10">
-          <div class="center mr-3">
-            <img src="~/assets/images/mi/btn3.png" alt="btn" width="24px" height="24px" />
-          </div>
-          <div class="flex-1 w-5 ">{{ t('mi4') }}</div>
-        </div>
+    <router-link to="/retirarlog" class="a-nostyle flex flex-col items-center justify-start w-1/4 mb-3">
+      <div class="icon-box flex items-center justify-center mb-1">
+        <img src="~/assets/images/mi/btn3.png" alt="btn" width="30px" height="30px" />
       </div>
-      <div class="center">
-        <q-icon name="arrow_forward_ios" />
-      </div>
+      <div class="text-center text-xs text-medium w-full px-1 text-[#250700]">{{ t('mi4') }}</div>
     </router-link>
 
-    <a :href="downLink" class="a-nostyle flex items-center justify-between py-4 font-bold">
-      <div class="flex mr-2 items-center flex-1 w-20">
-        <div class="flex items-center flex-1 w-10">
-          <div class="center mr-3">
-            <img src="~/assets/images/mi/btn4.png" alt="btn" width="24px" height="24px" />
-          </div>
-          <div class="flex-1 w-5 ">{{ t('Descargar') }}</div>
-        </div>
+    <a :href="downLink" class="a-nostyle flex flex-col items-center justify-start w-1/4 mb-3">
+      <div class="icon-box flex items-center justify-center mb-1">
+        <img src="~/assets/images/mi/btn4.png" alt="btn" width="30px" height="30px" />
       </div>
-      <div class="center">
-        <q-icon name="arrow_forward_ios" />
-      </div>
+      <div class="text-center text-xs text-medium w-full px-1 text-[#250700]">{{ t('Descargar') }}</div>
     </a>
 
-    <div @click="logout" class="flex items-center justify-between py-4 font-bold">
-      <div class="flex mr-2 items-center flex-1 w-20">
-        <div class="flex items-center flex-1 w-10">
-          <div class="center mr-3">
-            <img src="~/assets/images/mi/btn5.png" alt="btn" width="24px" height="24px" />
-          </div>
-          <div class="flex-1 w-5 ">{{ t('Salir') }}</div>
-        </div>
+    <div @click="logout" class="flex flex-col items-center justify-start w-1/4 mb-3 cursor-pointer">
+      <div class="icon-box flex items-center justify-center mb-1">
+        <img src="~/assets/images/mi/btn5.png" alt="btn" width="30px" height="30px" />
       </div>
-      <div class="center">
-        <q-icon name="arrow_forward_ios" />
-      </div>
+      <div class="text-center text-xs text-medium w-full px-1 text-[#250700]">{{ t('Salir') }}</div>
     </div>
   </div>
 </template>
@@ -87,5 +52,15 @@ const logout = () => {
 </script>
 
 <style lang="scss" scoped>
-
+.box {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.icon-box {
+  background: #fff;
+  border-radius: 12px;
+  width: 70px;
+  height: 70px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
 </style>

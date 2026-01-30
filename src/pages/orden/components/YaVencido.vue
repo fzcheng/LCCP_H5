@@ -1,8 +1,8 @@
 <template>
-  <div v-for="item in list" :key="item.id" class="p-3 rounded-lg mt-4" style="border: 1px solid #bdbdbd">
+  <div v-for="item in list" :key="item.id" class="box p-3 mt-4 text-black">
     <div class="flex items-center justify-between">
-      <div class="font-bold text-base">{{ item.goods_name }}</div>
-      <div class="text-lg font-bold text-grey-5">{{ `${t('symbol')} ${item.goods_price}` }}</div>
+      <div class="font-bold text-base text-[#370000]">{{ item.goods_name }}</div>
+      <div class="text-lg font-bold text-red-500">{{ `${t('symbol')} ${item.goods_price}` }}</div>
     </div>
     <div class="flex items-center q-mr-xs">
       <div class="flex-1 w-10 flex items-center no-wrap">
@@ -16,9 +16,9 @@
           class="mr-2"
           style="filter: grayscale(100%);border-radius: 6px;"
         />
-        <div class="flex-1 w-5 text-[13px]">
-          <!-- <div>Ingreso diario: M${{ item.day_income }}</div>
-          <div>Ingreso total: M${{ item.total_income }}</div>
+        <div class="flex-1 w-5 text-[13px] text-[#250700]">
+          <!-- <div>Ingreso diario: EGP{{ item.day_income }}</div>
+          <div>Ingreso total: EGP{{ item.total_income }}</div>
           <div>Días de inversión: {{ item.effective_time }} días</div> -->
 
           <div> {{ `${t('homeprodlist2')} ${t('symbol')}${item.day_income}` }} </div>
@@ -45,4 +45,10 @@ defineProps<{
 }>()
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.box{
+  background: url(src/assets/images/home/bg3.png) no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+</style>

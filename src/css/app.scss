@@ -1,5 +1,10 @@
 // app global css in SCSS form
 @import 'tailwind.css';
+html,body,#q-app {
+  background: url(src/assets/images/public/bg.png) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
 .center {
   display: grid;
@@ -27,23 +32,54 @@ input[type='number'] {
 .mine-input {
   .q-field__control {
     border-radius: 8px;
+    background: #fff !important;
   }
-  &.q-field--standout.q-field--dark.q-field--highlighted .q-field__control {
-    background: rgba(255, 255, 255, 0.07) !important;
+  
+  .q-field__native,
+  .q-field__input,
+  .q-field__append,
+  .q-field__prepend {
+    color: #370000 !important;
+    transition: color 0.3s ease-in-out;
   }
-  &.q-field--standout.q-field--dark.q-field--highlighted .q-field__native {
-    color: #fff !important;
+
+  // Placeholder color
+  input::placeholder,
+  textarea::placeholder {
+    color: #999999 !important;
+    opacity: 1;
+    transition: color 0.3s ease-in-out;
   }
-  &.q-field--standout.q-field--dark.q-field--highlighted .q-field__append {
-    color: rgba(255, 255, 255, 0.7) !important;
+  
+  // Quasar specific placeholder targeting if needed
+  .q-placeholder {
+    color: #370000 !important;
+    opacity: 1;
+    transition: color 0.3s ease-in-out;
   }
-  &.q-field--standout.q-field--dark.q-field--highlighted .q-field__prepend {
-    color: rgba(255, 255, 255, 0.7) !important;
+
+  // Override specific Quasar standout states
+  &.q-field--standout .q-field__control {
+    background: #fff !important;
   }
-}
-.mine-select {
-  &.q-field--standout.q-field--dark.q-field--highlighted .q-field__input {
-    color: rgba(255, 255, 255, 0.7) !important;
+  
+  &.q-field--standout.q-field--dark .q-field__control {
+    background: #fff !important;
+  }
+  
+  &.q-field--standout.q-field--highlighted .q-field__control {
+    background: #fff !important;
+  }
+
+  // FORCE text color in all states including focus/standout/dark
+  &.q-field--focused,
+  &.q-field--highlighted,
+  &.q-field--standout.q-field--highlighted,
+  &.q-field--standout.q-field--focused {
+    .q-field__native,
+    .q-field__input {
+      color: #370000 !important;
+    }
   }
 }
 
@@ -52,4 +88,18 @@ input[type='number'] {
   img {
     max-width: 100% !important;
   }
+}
+
+
+.box-main {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-bg{
+  background: #FFA81A;
+}
+
+.text-main{
+  color: #370000;
 }

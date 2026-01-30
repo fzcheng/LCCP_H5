@@ -15,10 +15,10 @@ export const copyText = async (text: string) => {
 
 }
 
-export const copyTextNotify = async (text: string) => {
+export const copyTextNotify = async (text: string,t: Function) => {
   await copyText(text)
   Notify.create({
     type: 'positive',
-    message: 'Copia exitosa'
+    message: t('submitTIps14')
   })
 }

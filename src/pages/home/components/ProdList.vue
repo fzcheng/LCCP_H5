@@ -5,10 +5,10 @@
     <div class="title">
       <span :data-text="t('homeprodlist1')">{{ t('homeprodlist1') }}</span>
     </div>
-    <div v-for="item in data" :key="item.id" class="p-3 rounded-lg mt-3" style="border: 1px solid #fcd33c">
+    <div v-for="item in data" :key="item.id" class="box p-3 mt-3">
       <div class="flex items-center justify-between">
-        <div class="font-bold text-base">{{ item.goods_name }}</div>
-        <div class="text-lg font-bold text-primary">{{ `${t('symbol')} ${item.goods_price}` }}</div>
+        <div class="font-bold text-base text-[#370000]">{{ item.goods_name }}</div>
+        <div class="text-lg font-bold text-red-500">{{ `${t('symbol')} ${item.goods_price}` }}</div>
       </div>
       <div class="flex items-center q-mr-xs">
         <div class="flex-1 w-10 flex items-center no-wrap">
@@ -22,9 +22,9 @@
             class="mr-2"
             style="border-radius: 6px"
           />
-          <div class="flex-1 w-5 text-[13px]">
-            <!-- <div>Ingreso diario: M${{ item.day_income }}</div>
-            <div>Ingreso total: M${{ item.total_income }}</div>
+          <div class="flex-1 w-5 text-[13px] text-[#250700]">
+            <!-- <div>Ingreso diario: EGP{{ item.day_income }}</div>
+            <div>Ingreso total: EGP{{ item.total_income }}</div>
             <div>Días de inversión: {{ item.effective_time }} días</div> -->
             <div> {{ `${t('homeprodlist2')} ${t('symbol')}${item.day_income}` }} </div>
             <div> {{ `${t('homeprodlist3')} ${t('symbol')}${item.total_income}` }} </div>
@@ -38,9 +38,9 @@
           size="sm"
           padding="xs sm"
           :label="t('homeprodlist5')"
-          text-color="black"
+          text-color="white"
           unelevated
-          style="border-radius: 6px"
+          style="border-radius: 12px"
         />
       </div>
     </div>
@@ -61,11 +61,11 @@ defineProps<{
   span {
     background: linear-gradient(
       to right,
-      #e5c179 0%,
-      #ffe475 25%,
-      #fffee6 50%,
-      #ffe475 75%,
-      #e4c279 100%
+      #885600 0%,
+      #885600 25%,
+      #C17100 50%,
+      #C17100 75%,
+      #633800 100%
     ); /* 设置渐变色 */
     -webkit-background-clip: text; /* 仅应用背景于文字 */
     background-clip: text; /* 文字渐变 */
@@ -90,5 +90,11 @@ defineProps<{
       text-shadow: 0 0px 1px #681e04;
     }
   }
+}
+
+.box{
+  background: url(src/assets/images/home/bg3.png) no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
 }
 </style>

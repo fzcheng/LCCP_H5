@@ -1,18 +1,18 @@
 <template>
-  <div class="rounded-xl p-2 flex items-center justify-center bg-[#fcd33c12]" style="border: 1px solid #fcd33c">
-    <div class="flex-1 w-10 text-center">
-      <div class="font-bold">{{ t('homebalance1') }}</div>
-      <div class="text-secondary">
-        <span>M$</span>
-        <span class="font-bold text-lg">{{ data?.yongj ?? '0.0' }}</span>
+  <div class=" flex items-center justify-between text-[#6F5A44]">
+    <div class="flex-1 text-center box py-4">
+      <div class="">{{ t('homebalance1') }}</div>
+      <div class="font-bold text-[#370000] mt-1">
+        <span>{{ t('symbol') }}</span>
+        <span class="text-lg">{{ data?.yongj ?? '0.0' }}</span>
       </div>
     </div>
-    <div class="h-8 w-[1px] bg-[#FCD33C]"></div>
-    <div class="flex-1 w-10 text-center">
-      <div class="font-bold">{{ t('homebalance2') }}</div>
-      <div class="text-secondary">
-        <span>M$</span>
-        <span class="font-bold text-lg">{{ data?.balance ?? '0.0' }}</span>
+    <!-- <div class="h-8 w-[1px] bg-[#FCD33C]"></div> -->
+    <div class="flex-1 text-center box py-4">
+      <div class="">{{ t('homebalance2') }}</div>
+      <div class="font-bold text-[#370000] mt-1">
+        <span>{{ t('symbol') }}</span>
+        <span class="text-lg">{{ data?.balance ?? '0.0' }}</span>
       </div>
     </div>
   </div>
@@ -27,4 +27,10 @@ defineProps<{
 }>()
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.box{
+  background: url(src/assets/images/home/bg1.png) no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+</style>

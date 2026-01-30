@@ -1,24 +1,27 @@
 <template>
   <section class="flex flex-col items-center justify-center min-h-screen q-pa-md">
     <!-- Logo 或头像区域 -->
-    <div class="w-36 h-36 bg-yellow-400 rounded-lg mb-5 logo-png"></div>
-
+    <!-- <div class="w-36 h-36 bg-yellow-400 rounded-lg mb-5 logo-png"></div> -->
+    <div class="flex items-center justify-center">
+      <img src="~/assets/images/login/icon.png" class="w-[80%] block" />
+    </div>
     <form class="w-full space-y-4">
       <div>
         <label class="text-white font-bold text-base flex items-center gap-2">
           <div class="center">
             <img src="~/assets/images/login/phone.png" alt="phone" class="w-[14px] h-[17.11px] block" />
           </div>
-          <div>{{ t('login1') }}</div>
+          <div class="text-main">{{ t('login1') }}</div>
         </label>
-        <div class="flex items-center bg-[#2c2c2e] rounded-md q-mt-xs text-white">
-          <div class="text-white mr-2 font-bold ml-4">+52</div>
+        <div class="flex items-center bg-white rounded-md q-mt-xs text-[#370000]">
+          <div class="text-[#370000] mr-2 font-bold ml-4">+52</div>
           <input
             type="tel"
             v-model="mobile"
+            maxlength="10"
             autocomplete="username"
             :placeholder="t('login2')"
-            class="bg-transparent mr-4 outline-none border-none flex-1 py-3 w-5 text-white placeholder-gray-400"
+            class="bg-transparent mr-4 outline-none border-none flex-1 py-3 w-5 text-[#370000] placeholder-gray-400"
           />
         </div>
       </div>
@@ -29,14 +32,14 @@
           <div class="center">
             <img src="~/assets/images/login/password.png" alt="phone" class="w-[16px] h-[18px] block" />
           </div>
-          <div>{{ t('login8') }}</div>
+          <div class="text-main">{{ t('login8') }}</div>
         </label>
         <input
           autocomplete="new-password"
           type="password"
           v-model="password"
           :placeholder="t('login4')"
-          class="bg-[#2c2c2e] px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-white placeholder-gray-400"
+          class="bg-white px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-[#370000] placeholder-gray-400"
         />
       </div>
 
@@ -45,23 +48,22 @@
           <div class="center">
             <img src="~/assets/images/login/invitaction.png" alt="phone" class="w-[16px] h-[18px] block" />
           </div>
-          <div>{{ t('login9') }}</div>
+          <div class="text-main">{{ t('login9') }}</div>
         </label>
         <input
           type="text"
           v-model="invitationCode"
           :placeholder="t('login10')"
-          class="bg-[#2c2c2e] px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-white placeholder-gray-400"
+          class="bg-white px-4 py-3 q-mt-xs rounded-md outline-none border-none w-full text-[#370000] placeholder-gray-400"
         />
       </div>
 
       <div class="q-mt-lg">
         <div>
           <q-btn
-            color="primary"
-            text-color="black"
+            text-color="white"
             label="Registrarse"
-            class="full-width"
+            class="full-width btn-bg"
             padding="sm"
             unelevated
             no-caps
@@ -72,12 +74,11 @@
         </div>
         <router-link to="/login" class="mt-3 block a-nostyle">
           <q-btn
-            color="primary"
+            text-color="main"
             label="Iniciar sesion"
-            class="full-width"
+            class="full-width bg-white"
             padding="sm"
             no-caps
-            outline
             unelevated
             style="border-radius: 8px; font-weight: bold"
           />
@@ -109,10 +110,10 @@ const $q = useQuasar()
 const loading = ref(false)
 
 const submit = async () => {
-  if (!mobile.value) {
+  if (!mobile.value || mobile.value.length != 10) {
     $q.notify({
       type: 'negative',
-      message: 'Por favor, introduzca su número de móvil'
+      message: t('submitTIps7')
     })
     return
   }
@@ -120,7 +121,7 @@ const submit = async () => {
   if (!password.value) {
     $q.notify({
       type: 'negative',
-      message: 'Por favor, introduzca su contraseña'
+      message: t('submitTIps8')
     })
     return
   }
@@ -128,7 +129,7 @@ const submit = async () => {
   if (!invitationCode.value) {
     $q.notify({
       type: 'negative',
-      message: 'Por favor, rellene el código de invitación'
+      message: t('submitTIps11')
     })
     return
   }
@@ -143,7 +144,7 @@ const submit = async () => {
   }).finally(() => (loading.value = false))
   $q.notify({
     type: 'positive',
-    message: 'Registro exitoso'
+    message: t('submitTIps1')
   })
   location.href = downLink
   // router.replace('/login')

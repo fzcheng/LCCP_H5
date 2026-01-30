@@ -1,8 +1,6 @@
 import enUS from './en-US';
-import msMY from './ms-MY';
-import esES from './es-ES';
+import esMX from './es-MX';
 export default {
   'en-US': enUS,
-  'ms-MY': msMY,
-  'es-ES': esES
+  'es-MX': esMX,
 };

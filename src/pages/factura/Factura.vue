@@ -2,7 +2,7 @@
   <BackWrap :title="t('Factura')">
     <q-page class="q-pa-md">
       <div class="space-y-3">
-        <div v-for="item in list" :key="item.id" class="bg-[#222530] rounded-md p-3">
+        <div v-for="item in list" :key="item.id" class="box-main text-[#370000] rounded-md p-3">
         <div class="flex justify-between items-center">
           <div class="font-bold text-base" :style="{color: item.color}"> {{ t('symbol') }} {{ BigNumber(item.num).toFixed(1, BigNumber.ROUND_DOWN) }}</div>
           <div>{{ item.type_text }}</div>

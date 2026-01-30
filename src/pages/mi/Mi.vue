@@ -6,10 +6,10 @@
         <div class="center mr-1">
           <img src="~/assets/images/mi/title.png" alt="title" style="width: 22px; height: 22px" />
         </div>
-        <div class="font-bold text-xl">{{ t('Mi') }}</div>
+        <div class="font-bold text-xl text-[#370000]">{{ t('Mi') }}</div>
       </div>
       <div class="w-1/3 flex items-center justify-end">
-        <q-btn
+        <!-- <q-btn
           @click="router.push('/language')"
           outline
           rounded
@@ -21,19 +21,19 @@
           <div class="flex items-center py-0.5 px-0.5">
             <div>{{ lang }}</div>
           </div>
-        </q-btn>
+        </q-btn> -->
       </div>
 
     </div>
 
-    <div class="font-bold q-mt-md">{{ t('mi1') }}:{{ userinfo?.username ?? '' }}</div>
+    <div class="font-bold q-mt-md text-[#370000]">{{ t('mi1') }}:{{ userinfo?.username ?? '' }}</div>
 
     <Balance :data="userinfo" class="q-mt-md" />
     <ActionBtns class="q-mt-lg" />
 
-    <div class="mt-7">
+    <!-- <div class="mt-7">
       <q-separator color="grey-7" />
-    </div>
+    </div> -->
     <ActionList />
   </q-page>
 </template>
@@ -49,7 +49,7 @@ import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 const router = useRouter()
 const userinfo = ref<UInfo>()
-const langList = ref<any[]>([{label: 'English', value: 'en-US'},{label:'Bahasa Melayu',value:'ms-MY'},{label:'Español',value:'es-ES'}])
+const langList = ref<any[]>([{label: 'English', value: 'en-US'},{label:'Español',value:'es-MX'}])
 const lang = ref()
 const { t, locale } = useI18n()
 watch(locale, (newVal) => {

@@ -1,17 +1,20 @@
 <template>
   <q-page  class="q-pa-md">
     <div class="flex items-center justify-between">
-      <q-avatar size="38px"   color="teal" >
+      <!-- <q-avatar size="38px"   color="teal" >
         <img src="/logo.png" alt="logo" >
-      </q-avatar>
+      </q-avatar> -->
+      <div>
+        <img src="/logo.png" alt="logo" width="150px">
+      </div>
 
-      <router-link to="/cs"  class=" a-nostyle flex items-center px-4 py-1 rounded-full " style="border: 1px solid #5a5b63;">
+      <router-link to="/cs"  class=" a-nostyle flex items-center px-4 py-1 rounded-full " style="background-color: white;color: black;">
         <div class="center mr-2"><img src="~/assets/images/home/customer.png" alt="customer" style="width: 18px;" /></div>
         <div>{{ t('CS') }}</div>
       </router-link>
     </div>
 
-    <Banner class="q-mt-md" />
+    <Banner class="q-mt-xs" />
     <Information v-if="indexmsg" :msg="indexmsg"  class="mt-3" />
     <div class="h-1" v-else></div>
     <Balance class="mt-3" :data="uinfo" />
